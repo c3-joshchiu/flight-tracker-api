@@ -1,0 +1,385 @@
+openapi: 3.1.0
+info:
+  title: Flight Price Tracker API
+  version: 1.0.0
+  description: >
+    RESTful API for flight search and price tracking.
+    Exposed via C3 @restful annotation with Restful mixin (js-server).
+    See https://docs.c3.ai/docs/platform/8.9/type/Ann.Restful
+
+servers:
+  - url: "{baseUrl}/flights"
+    variables:
+      baseUrl:
+        default: "."
+
+paths:
+  /searches:
+    get:
+      operationId: listSearches
+      summary: List all flight searches
+      description: Returns all searches ordered by most recently created.
+      responses:
+        "200":
+          description: Array of flight searches
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/FlightSearch"
+
+    post:
+      operationId: createSearch
+      summary: Create a new flight search
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SearchCreateInput"
+      responses:
+        "200":
+          description: The created search with searchStatus "active"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FlightSearch"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+
+  /searches/{id}:
+    get:
+      operationId: getSearch
+      summary: Get a single search by ID
+      parameters:
+        - $ref: "#/components/parameters/SearchId"
+      responses:
+        "200":
+          description: The search entity with all fields
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FlightSearch"
+        "404":
+          $ref: "#/components/responses/NotFound"
+
+    patch:
+      operationId: updateSearch
+      summary: Update search status
+      parameters:
+        - $ref: "#/components/parameters/SearchId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [searchStatus]
+              properties:
+                searchStatus:
+                  type: string
+                  enum: [active, disabled]
+      responses:
+        "200":
+          description: The updated search
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FlightSearch"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "404":
+          $ref: "#/components/responses/NotFound"
+
+    delete:
+      operationId: deleteSearch
+      summary: Delete a search and all its snapshots
+      parameters:
+        - $ref: "#/components/parameters/SearchId"
+      responses:
+        "200":
+          description: Deleted successfully (empty body)
+        "404":
+          $ref: "#/components/responses/NotFound"
+
+  /searches/{id}/alert:
+    get:
+      operationId: getAlert
+      summary: Compute price trend alert
+      description: >
+        Analyzes the last 14 days of economy snapshots to detect price trends.
+        Red: 5+ of 7 current-week daily prices exceed previous week.
+        Green: Current week average is 20%+ lower than previous week.
+        Grey: Insufficient data or no significant change.
+      parameters:
+        - $ref: "#/components/parameters/SearchId"
+      responses:
+        "200":
+          description: Alert result with trend analysis
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AlertResult"
+
+  /searches/{id}/prices:
+    get:
+      operationId: getPrices
+      summary: Price history for a search
+      parameters:
+        - $ref: "#/components/parameters/SearchId"
+        - name: seatClass
+          in: query
+          description: Filter by seat class (omit for all classes)
+          schema:
+            type: string
+            enum: [economy, business]
+      responses:
+        "200":
+          description: Array of price snapshots ordered by fetchedAt ascending
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/PriceSnapshot"
+
+  /searches/{id}/latest-price:
+    get:
+      operationId: getLatestPrice
+      summary: Most recent economy snapshot
+      parameters:
+        - $ref: "#/components/parameters/SearchId"
+      responses:
+        "200":
+          description: Latest economy snapshot, or null if none exist
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: "#/components/schemas/PriceSnapshot"
+                  - type: "null"
+
+  /searches/{id}/fetch:
+    post:
+      operationId: triggerFetch
+      summary: Trigger live price scrape
+      description: >
+        Scrapes Google Flights for both economy and business classes.
+        Silently skips seat classes where the live fetch fails (no mock fallback).
+      parameters:
+        - $ref: "#/components/parameters/SearchId"
+      responses:
+        "200":
+          description: Newly fetched snapshots (0-2 items depending on scrape success)
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/PriceSnapshot"
+        "404":
+          $ref: "#/components/responses/NotFound"
+
+components:
+  parameters:
+    SearchId:
+      name: id
+      in: path
+      required: true
+      description: FlightSearch entity ID
+      schema:
+        type: string
+
+  responses:
+    BadRequest:
+      description: Invalid request
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ApiError"
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ApiError"
+
+  schemas:
+    FlightSearch:
+      type: object
+      required: [id, fromAirport, toAirport, tripType, outboundDate, searchStatus]
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+          description: C3 auto-generated name field
+        fromAirport:
+          type: string
+          description: IATA airport code (e.g. "LAX")
+        toAirport:
+          type: string
+          description: IATA airport code (e.g. "NRT")
+        tripType:
+          type: string
+          enum: [one-way, round-trip]
+        outboundDate:
+          type: string
+          format: date-time
+        returnDate:
+          type: string
+          format: date-time
+          nullable: true
+        maxStops:
+          type: integer
+          nullable: true
+        passengersAdults:
+          type: integer
+          default: 1
+        language:
+          type: string
+        currency:
+          type: string
+        searchStatus:
+          type: string
+          enum: [active, disabled]
+        isTestData:
+          type: boolean
+        version:
+          type: integer
+          description: C3 entity version (optimistic locking)
+        meta:
+          $ref: "#/components/schemas/Meta"
+
+    PriceSnapshot:
+      type: object
+      required: [id, flightSearch, seatClass, price, fetchedAt]
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+          description: C3 auto-generated name field
+        flightSearch:
+          description: Parent search (full entity or ID reference)
+          oneOf:
+            - $ref: "#/components/schemas/FlightSearch"
+            - type: object
+              properties:
+                id:
+                  type: string
+        seatClass:
+          type: string
+          enum: [economy, business]
+        price:
+          type: integer
+          description: Price in cents (e.g. 85000 = $850)
+        airlineCodes:
+          type: array
+          items:
+            type: string
+          description: IATA airline codes
+        airlineNames:
+          type: array
+          items:
+            type: string
+        flightType:
+          type: string
+          description: '"direct", "1 stop", etc.'
+        durationMinutes:
+          type: integer
+          nullable: true
+        fetchedAt:
+          type: string
+          format: date-time
+        version:
+          type: integer
+        meta:
+          $ref: "#/components/schemas/Meta"
+
+    AlertResult:
+      type: object
+      required: [searchId, status, message]
+      properties:
+        searchId:
+          type: string
+        status:
+          type: string
+          enum: [red, green, grey]
+        message:
+          type: string
+          description: Human-readable alert description
+        currentWeekAvg:
+          type: number
+          nullable: true
+          description: Average daily min price this week (cents)
+        previousWeekAvg:
+          type: number
+          nullable: true
+          description: Average daily min price last week (cents)
+        percentChange:
+          type: number
+          nullable: true
+          description: Week-over-week percent change
+        daysRising:
+          type: integer
+          nullable: true
+          description: Days where current week price > previous week
+        cheapestAirline:
+          type: string
+          nullable: true
+          description: Name of cheapest airline from latest snapshot
+        googleFlightsUrl:
+          type: string
+          nullable: true
+          description: Protobuf-encoded Google Flights search URL
+
+    SearchCreateInput:
+      type: object
+      required: [fromAirport, toAirport, outboundDate]
+      properties:
+        fromAirport:
+          type: string
+          description: IATA airport code
+        toAirport:
+          type: string
+          description: IATA airport code
+        tripType:
+          type: string
+          enum: [one-way, round-trip]
+          default: one-way
+        outboundDate:
+          type: string
+          format: date
+        returnDate:
+          type: string
+          format: date
+          nullable: true
+        maxStops:
+          type: integer
+          nullable: true
+        passengersAdults:
+          type: integer
+          default: 1
+        currency:
+          type: string
+          default: USD
+
+    Meta:
+      type: object
+      properties:
+        created:
+          type: string
+          format: date-time
+        updated:
+          type: string
+          format: date-time
+
+    ApiError:
+      type: object
+      properties:
+        error:
+          type: string
+        status:
+          type: integer

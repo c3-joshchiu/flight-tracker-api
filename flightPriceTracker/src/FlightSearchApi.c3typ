@@ -1,0 +1,18 @@
+/**
+ * RESTful API for flight search and price tracking.
+ *
+ * Exposes endpoints under /flights/ with proper HTTP verb routing:
+ *   GET    /flights/searches                   - list all searches
+ *   POST   /flights/searches                   - create a search
+ *   GET    /flights/searches/:id               - get single search
+ *   PATCH  /flights/searches/:id               - update search status
+ *   DELETE /flights/searches/:id               - delete search + snapshots
+ *   GET    /flights/searches/:id/alert         - compute price alert
+ *   GET    /flights/searches/:id/prices        - price history (?seatClass=)
+ *   GET    /flights/searches/:id/latest-price  - latest economy snapshot
+ *   POST   /flights/searches/:id/fetch         - trigger live scrape
+ */
+@restful(endpoint='flights')
+type FlightSearchApi mixes Restful {
+  handle: function(httpPath: !string, req: !HttpRequest): HttpResponse js-server
+}

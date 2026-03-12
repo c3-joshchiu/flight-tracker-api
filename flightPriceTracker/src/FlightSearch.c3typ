@@ -1,0 +1,118 @@
+/**
+ * Represents a flight price search criteria and its associated price tracking data.
+ */
+entity type FlightSearch {
+
+  /**
+   * The departure airport IATA code.
+   */
+  fromAirport: !string
+
+  /**
+   * The destination airport IATA code.
+   */
+  toAirport: !string
+
+  /**
+   * The type of trip ('one-way' or 'round-trip').
+   */
+  tripType: !string enum('one-way', 'round-trip')
+
+  /**
+   * The date of the outbound flight.
+   */
+  outboundDate: !datetime
+
+  /**
+   * The date of the return flight (only applicable for round-trip).
+   */
+  returnDate: datetime
+
+  /**
+   * Maximum number of stops allowed in the flight route.
+   */
+  maxStops: int
+
+  /**
+   * Number of adult passengers (default is 1).
+   */
+  passengersAdults: int
+
+  /**
+   * Language preference for the search results.
+   */
+  language: string
+
+  /**
+   * Currency for displaying prices.
+   */
+  currency: string
+
+  /**
+   * Status of the search ('active' or 'disabled').
+   */
+  searchStatus: string enum('active', 'disabled')
+
+  /**
+   * Flag indicating whether this is test data.
+   */
+  isTestData: boolean
+
+  /**
+   * Collection of price snapshots associated with this flight search.
+   */
+  snapshots: [PriceSnapshot](flightSearch)
+
+  /**
+   * List all searches ordered by most recently created.
+   * @return All FlightSearch entities ordered by creation time.
+   */
+  getAll: function(): [FlightSearch] js-server
+
+  /**
+   * Get a single search by ID.
+   * @param searchId The ID of the search to retrieve.
+   * @return The FlightSearch entity with the specified ID.
+   */
+  getById: function(searchId: string): FlightSearch js-server
+
+  /**
+   * Create a new search from JSON data.
+   * @param data JSON object containing search criteria.
+   * @return The newly created FlightSearch entity.
+   */
+  createSearch: function(data: json): FlightSearch js-server
+
+  /**
+   * Update the status of a search.
+   * @param searchId The ID of the search to update.
+   * @param newStatus The new status ('active' or 'disabled').
+   * @return The updated FlightSearch entity.
+   */
+  updateSearchStatus: function(searchId: string, newStatus: string): FlightSearch js-server
+
+  /**
+   * Delete a search and all its snapshots.
+   * @param searchId The ID of the search to delete.
+   * @return True if deletion was successful.
+   */
+  deleteSearch: function(searchId: string): boolean js-server
+
+  /**
+   * Compute the alert status based on price history analysis.
+   * Analyzes the last 14 days of economy price snapshots.
+   * Red: 5+ of 7 current-week daily prices exceed previous week.
+   * Green: Current week average is 20%+ lower than previous week.
+   * Grey: Insufficient data or no significant change.
+   * @param searchId The ID of the search to analyze.
+   * @return JSON object with alert status, message, averages, and percent change.
+   */
+  computeAlert: function(searchId: string): json py
+
+  /**
+   * Get the most recent economy price snapshot for a search.
+   * @param searchId The ID of the search.
+   * @return The most recent economy PriceSnapshot, or null.
+   */
+  getLatestPrice: function(searchId: string): PriceSnapshot js-server
+}

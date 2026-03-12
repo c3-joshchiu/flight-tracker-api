@@ -1,0 +1,3866 @@
+[
+  {
+    "id": "seed_snap_lax_nrt_economy_1",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "economy",
+    "price": 85154,
+    "airlineCodes": [
+      "AA"
+    ],
+    "airlineNames": [
+      "American Airlines"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 600,
+    "fetchedAt": "2026-02-21T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_business_2",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "business",
+    "price": 319784,
+    "airlineCodes": [
+      "AA"
+    ],
+    "airlineNames": [
+      "American Airlines"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 600,
+    "fetchedAt": "2026-02-21T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_economy_3",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "economy",
+    "price": 84614,
+    "airlineCodes": [
+      "DL"
+    ],
+    "airlineNames": [
+      "Delta Air Lines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 600,
+    "fetchedAt": "2026-02-21T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_business_4",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "business",
+    "price": 319659,
+    "airlineCodes": [
+      "DL"
+    ],
+    "airlineNames": [
+      "Delta Air Lines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 600,
+    "fetchedAt": "2026-02-21T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_economy_5",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "economy",
+    "price": 84525,
+    "airlineCodes": [
+      "UA"
+    ],
+    "airlineNames": [
+      "United Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 600,
+    "fetchedAt": "2026-02-21T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_business_6",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "business",
+    "price": 319720,
+    "airlineCodes": [
+      "UA"
+    ],
+    "airlineNames": [
+      "United Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 600,
+    "fetchedAt": "2026-02-21T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_economy_7",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "economy",
+    "price": 85259,
+    "airlineCodes": [
+      "BA"
+    ],
+    "airlineNames": [
+      "British Airways"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 610,
+    "fetchedAt": "2026-02-22T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_business_8",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "business",
+    "price": 320480,
+    "airlineCodes": [
+      "BA"
+    ],
+    "airlineNames": [
+      "British Airways"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 610,
+    "fetchedAt": "2026-02-22T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_economy_9",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "economy",
+    "price": 84781,
+    "airlineCodes": [
+      "AF"
+    ],
+    "airlineNames": [
+      "Air France"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 610,
+    "fetchedAt": "2026-02-22T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_business_10",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "business",
+    "price": 320281,
+    "airlineCodes": [
+      "AF"
+    ],
+    "airlineNames": [
+      "Air France"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 610,
+    "fetchedAt": "2026-02-22T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_economy_11",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "economy",
+    "price": 84750,
+    "airlineCodes": [
+      "NH",
+      "AA"
+    ],
+    "airlineNames": [
+      "All Nippon Airways",
+      "American Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 610,
+    "fetchedAt": "2026-02-22T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_business_12",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "business",
+    "price": 319844,
+    "airlineCodes": [
+      "NH",
+      "AA"
+    ],
+    "airlineNames": [
+      "All Nippon Airways",
+      "American Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 610,
+    "fetchedAt": "2026-02-22T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_economy_13",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "economy",
+    "price": 84728,
+    "airlineCodes": [
+      "AA"
+    ],
+    "airlineNames": [
+      "American Airlines"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 620,
+    "fetchedAt": "2026-02-23T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_business_14",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "business",
+    "price": 319604,
+    "airlineCodes": [
+      "AA"
+    ],
+    "airlineNames": [
+      "American Airlines"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 620,
+    "fetchedAt": "2026-02-23T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_economy_15",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "economy",
+    "price": 84642,
+    "airlineCodes": [
+      "DL"
+    ],
+    "airlineNames": [
+      "Delta Air Lines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 620,
+    "fetchedAt": "2026-02-23T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_business_16",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "business",
+    "price": 319594,
+    "airlineCodes": [
+      "DL"
+    ],
+    "airlineNames": [
+      "Delta Air Lines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 620,
+    "fetchedAt": "2026-02-23T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_economy_17",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "economy",
+    "price": 85254,
+    "airlineCodes": [
+      "UA"
+    ],
+    "airlineNames": [
+      "United Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 620,
+    "fetchedAt": "2026-02-23T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_business_18",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "business",
+    "price": 319889,
+    "airlineCodes": [
+      "UA"
+    ],
+    "airlineNames": [
+      "United Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 620,
+    "fetchedAt": "2026-02-23T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_economy_19",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "economy",
+    "price": 84604,
+    "airlineCodes": [
+      "BA"
+    ],
+    "airlineNames": [
+      "British Airways"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 630,
+    "fetchedAt": "2026-02-24T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_business_20",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "business",
+    "price": 319599,
+    "airlineCodes": [
+      "BA"
+    ],
+    "airlineNames": [
+      "British Airways"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 630,
+    "fetchedAt": "2026-02-24T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_economy_21",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "economy",
+    "price": 85192,
+    "airlineCodes": [
+      "AF"
+    ],
+    "airlineNames": [
+      "Air France"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 630,
+    "fetchedAt": "2026-02-24T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_business_22",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "business",
+    "price": 319867,
+    "airlineCodes": [
+      "AF"
+    ],
+    "airlineNames": [
+      "Air France"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 630,
+    "fetchedAt": "2026-02-24T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_economy_23",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "economy",
+    "price": 85258,
+    "airlineCodes": [
+      "NH",
+      "AA"
+    ],
+    "airlineNames": [
+      "All Nippon Airways",
+      "American Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 630,
+    "fetchedAt": "2026-02-24T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_business_24",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "business",
+    "price": 320367,
+    "airlineCodes": [
+      "NH",
+      "AA"
+    ],
+    "airlineNames": [
+      "All Nippon Airways",
+      "American Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 630,
+    "fetchedAt": "2026-02-24T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_economy_25",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "economy",
+    "price": 85413,
+    "airlineCodes": [
+      "AA"
+    ],
+    "airlineNames": [
+      "American Airlines"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 640,
+    "fetchedAt": "2026-02-25T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_business_26",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "business",
+    "price": 319852,
+    "airlineCodes": [
+      "AA"
+    ],
+    "airlineNames": [
+      "American Airlines"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 640,
+    "fetchedAt": "2026-02-25T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_economy_27",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "economy",
+    "price": 85058,
+    "airlineCodes": [
+      "DL"
+    ],
+    "airlineNames": [
+      "Delta Air Lines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 640,
+    "fetchedAt": "2026-02-25T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_business_28",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "business",
+    "price": 320118,
+    "airlineCodes": [
+      "DL"
+    ],
+    "airlineNames": [
+      "Delta Air Lines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 640,
+    "fetchedAt": "2026-02-25T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_economy_29",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "economy",
+    "price": 84589,
+    "airlineCodes": [
+      "UA"
+    ],
+    "airlineNames": [
+      "United Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 640,
+    "fetchedAt": "2026-02-25T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_business_30",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "business",
+    "price": 319770,
+    "airlineCodes": [
+      "UA"
+    ],
+    "airlineNames": [
+      "United Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 640,
+    "fetchedAt": "2026-02-25T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_economy_31",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "economy",
+    "price": 85104,
+    "airlineCodes": [
+      "BA"
+    ],
+    "airlineNames": [
+      "British Airways"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 650,
+    "fetchedAt": "2026-02-26T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_business_32",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "business",
+    "price": 320326,
+    "airlineCodes": [
+      "BA"
+    ],
+    "airlineNames": [
+      "British Airways"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 650,
+    "fetchedAt": "2026-02-26T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_economy_33",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "economy",
+    "price": 84932,
+    "airlineCodes": [
+      "AF"
+    ],
+    "airlineNames": [
+      "Air France"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 650,
+    "fetchedAt": "2026-02-26T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_business_34",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "business",
+    "price": 319544,
+    "airlineCodes": [
+      "AF"
+    ],
+    "airlineNames": [
+      "Air France"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 650,
+    "fetchedAt": "2026-02-26T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_economy_35",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "economy",
+    "price": 84532,
+    "airlineCodes": [
+      "NH",
+      "AA"
+    ],
+    "airlineNames": [
+      "All Nippon Airways",
+      "American Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 650,
+    "fetchedAt": "2026-02-26T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_business_36",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "business",
+    "price": 320247,
+    "airlineCodes": [
+      "NH",
+      "AA"
+    ],
+    "airlineNames": [
+      "All Nippon Airways",
+      "American Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 650,
+    "fetchedAt": "2026-02-26T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_economy_37",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "economy",
+    "price": 84530,
+    "airlineCodes": [
+      "AA"
+    ],
+    "airlineNames": [
+      "American Airlines"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 660,
+    "fetchedAt": "2026-02-27T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_business_38",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "business",
+    "price": 319970,
+    "airlineCodes": [
+      "AA"
+    ],
+    "airlineNames": [
+      "American Airlines"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 660,
+    "fetchedAt": "2026-02-27T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_economy_39",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "economy",
+    "price": 84595,
+    "airlineCodes": [
+      "DL"
+    ],
+    "airlineNames": [
+      "Delta Air Lines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 660,
+    "fetchedAt": "2026-02-27T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_business_40",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "business",
+    "price": 320049,
+    "airlineCodes": [
+      "DL"
+    ],
+    "airlineNames": [
+      "Delta Air Lines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 660,
+    "fetchedAt": "2026-02-27T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_economy_41",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "economy",
+    "price": 84723,
+    "airlineCodes": [
+      "UA"
+    ],
+    "airlineNames": [
+      "United Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 660,
+    "fetchedAt": "2026-02-27T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_business_42",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "business",
+    "price": 319627,
+    "airlineCodes": [
+      "UA"
+    ],
+    "airlineNames": [
+      "United Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 660,
+    "fetchedAt": "2026-02-27T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_economy_43",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "economy",
+    "price": 92038,
+    "airlineCodes": [
+      "BA"
+    ],
+    "airlineNames": [
+      "British Airways"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 670,
+    "fetchedAt": "2026-02-28T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_business_44",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "business",
+    "price": 345987,
+    "airlineCodes": [
+      "BA"
+    ],
+    "airlineNames": [
+      "British Airways"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 670,
+    "fetchedAt": "2026-02-28T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_economy_45",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "economy",
+    "price": 92317,
+    "airlineCodes": [
+      "AF"
+    ],
+    "airlineNames": [
+      "Air France"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 670,
+    "fetchedAt": "2026-02-28T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_business_46",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "business",
+    "price": 345680,
+    "airlineCodes": [
+      "AF"
+    ],
+    "airlineNames": [
+      "Air France"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 670,
+    "fetchedAt": "2026-02-28T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_economy_47",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "economy",
+    "price": 92416,
+    "airlineCodes": [
+      "NH",
+      "AA"
+    ],
+    "airlineNames": [
+      "All Nippon Airways",
+      "American Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 670,
+    "fetchedAt": "2026-02-28T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_business_48",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "business",
+    "price": 346165,
+    "airlineCodes": [
+      "NH",
+      "AA"
+    ],
+    "airlineNames": [
+      "All Nippon Airways",
+      "American Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 670,
+    "fetchedAt": "2026-02-28T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_economy_49",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "economy",
+    "price": 91827,
+    "airlineCodes": [
+      "AA"
+    ],
+    "airlineNames": [
+      "American Airlines"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 680,
+    "fetchedAt": "2026-03-01T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_business_50",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "business",
+    "price": 345900,
+    "airlineCodes": [
+      "AA"
+    ],
+    "airlineNames": [
+      "American Airlines"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 680,
+    "fetchedAt": "2026-03-01T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_economy_51",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "economy",
+    "price": 92374,
+    "airlineCodes": [
+      "DL"
+    ],
+    "airlineNames": [
+      "Delta Air Lines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 680,
+    "fetchedAt": "2026-03-01T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_business_52",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "business",
+    "price": 346243,
+    "airlineCodes": [
+      "DL"
+    ],
+    "airlineNames": [
+      "Delta Air Lines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 680,
+    "fetchedAt": "2026-03-01T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_economy_53",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "economy",
+    "price": 92003,
+    "airlineCodes": [
+      "UA"
+    ],
+    "airlineNames": [
+      "United Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 680,
+    "fetchedAt": "2026-03-01T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_business_54",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "business",
+    "price": 346233,
+    "airlineCodes": [
+      "UA"
+    ],
+    "airlineNames": [
+      "United Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 680,
+    "fetchedAt": "2026-03-01T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_economy_55",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "economy",
+    "price": 92533,
+    "airlineCodes": [
+      "BA"
+    ],
+    "airlineNames": [
+      "British Airways"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 690,
+    "fetchedAt": "2026-03-02T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_business_56",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "business",
+    "price": 345970,
+    "airlineCodes": [
+      "BA"
+    ],
+    "airlineNames": [
+      "British Airways"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 690,
+    "fetchedAt": "2026-03-02T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_economy_57",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "economy",
+    "price": 92465,
+    "airlineCodes": [
+      "AF"
+    ],
+    "airlineNames": [
+      "Air France"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 690,
+    "fetchedAt": "2026-03-02T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_business_58",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "business",
+    "price": 346191,
+    "airlineCodes": [
+      "AF"
+    ],
+    "airlineNames": [
+      "Air France"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 690,
+    "fetchedAt": "2026-03-02T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_economy_59",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "economy",
+    "price": 92518,
+    "airlineCodes": [
+      "NH",
+      "AA"
+    ],
+    "airlineNames": [
+      "All Nippon Airways",
+      "American Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 690,
+    "fetchedAt": "2026-03-02T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_business_60",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "business",
+    "price": 345796,
+    "airlineCodes": [
+      "NH",
+      "AA"
+    ],
+    "airlineNames": [
+      "All Nippon Airways",
+      "American Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 690,
+    "fetchedAt": "2026-03-02T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_economy_61",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "economy",
+    "price": 92358,
+    "airlineCodes": [
+      "AA"
+    ],
+    "airlineNames": [
+      "American Airlines"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 700,
+    "fetchedAt": "2026-03-03T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_business_62",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "business",
+    "price": 346321,
+    "airlineCodes": [
+      "AA"
+    ],
+    "airlineNames": [
+      "American Airlines"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 700,
+    "fetchedAt": "2026-03-03T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_economy_63",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "economy",
+    "price": 92229,
+    "airlineCodes": [
+      "DL"
+    ],
+    "airlineNames": [
+      "Delta Air Lines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 700,
+    "fetchedAt": "2026-03-03T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_business_64",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "business",
+    "price": 345671,
+    "airlineCodes": [
+      "DL"
+    ],
+    "airlineNames": [
+      "Delta Air Lines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 700,
+    "fetchedAt": "2026-03-03T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_economy_65",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "economy",
+    "price": 92025,
+    "airlineCodes": [
+      "UA"
+    ],
+    "airlineNames": [
+      "United Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 700,
+    "fetchedAt": "2026-03-03T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_business_66",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "business",
+    "price": 345646,
+    "airlineCodes": [
+      "UA"
+    ],
+    "airlineNames": [
+      "United Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 700,
+    "fetchedAt": "2026-03-03T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_economy_67",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "economy",
+    "price": 92259,
+    "airlineCodes": [
+      "BA"
+    ],
+    "airlineNames": [
+      "British Airways"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 710,
+    "fetchedAt": "2026-03-04T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_business_68",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "business",
+    "price": 346277,
+    "airlineCodes": [
+      "BA"
+    ],
+    "airlineNames": [
+      "British Airways"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 710,
+    "fetchedAt": "2026-03-04T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_economy_69",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "economy",
+    "price": 92403,
+    "airlineCodes": [
+      "AF"
+    ],
+    "airlineNames": [
+      "Air France"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 710,
+    "fetchedAt": "2026-03-04T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_business_70",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "business",
+    "price": 345833,
+    "airlineCodes": [
+      "AF"
+    ],
+    "airlineNames": [
+      "Air France"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 710,
+    "fetchedAt": "2026-03-04T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_economy_71",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "economy",
+    "price": 92084,
+    "airlineCodes": [
+      "NH",
+      "AA"
+    ],
+    "airlineNames": [
+      "All Nippon Airways",
+      "American Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 710,
+    "fetchedAt": "2026-03-04T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_business_72",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "business",
+    "price": 346391,
+    "airlineCodes": [
+      "NH",
+      "AA"
+    ],
+    "airlineNames": [
+      "All Nippon Airways",
+      "American Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 710,
+    "fetchedAt": "2026-03-04T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_economy_73",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "economy",
+    "price": 91806,
+    "airlineCodes": [
+      "AA"
+    ],
+    "airlineNames": [
+      "American Airlines"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 720,
+    "fetchedAt": "2026-03-05T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_business_74",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "business",
+    "price": 345896,
+    "airlineCodes": [
+      "AA"
+    ],
+    "airlineNames": [
+      "American Airlines"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 720,
+    "fetchedAt": "2026-03-05T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_economy_75",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "economy",
+    "price": 92577,
+    "airlineCodes": [
+      "DL"
+    ],
+    "airlineNames": [
+      "Delta Air Lines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 720,
+    "fetchedAt": "2026-03-05T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_business_76",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "business",
+    "price": 345681,
+    "airlineCodes": [
+      "DL"
+    ],
+    "airlineNames": [
+      "Delta Air Lines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 720,
+    "fetchedAt": "2026-03-05T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_economy_77",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "economy",
+    "price": 91963,
+    "airlineCodes": [
+      "UA"
+    ],
+    "airlineNames": [
+      "United Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 720,
+    "fetchedAt": "2026-03-05T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_business_78",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "business",
+    "price": 345838,
+    "airlineCodes": [
+      "UA"
+    ],
+    "airlineNames": [
+      "United Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 720,
+    "fetchedAt": "2026-03-05T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_economy_79",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "economy",
+    "price": 92514,
+    "airlineCodes": [
+      "BA"
+    ],
+    "airlineNames": [
+      "British Airways"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 730,
+    "fetchedAt": "2026-03-06T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_business_80",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "business",
+    "price": 345703,
+    "airlineCodes": [
+      "BA"
+    ],
+    "airlineNames": [
+      "British Airways"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 730,
+    "fetchedAt": "2026-03-06T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_economy_81",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "economy",
+    "price": 92232,
+    "airlineCodes": [
+      "AF"
+    ],
+    "airlineNames": [
+      "Air France"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 730,
+    "fetchedAt": "2026-03-06T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_business_82",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "business",
+    "price": 345989,
+    "airlineCodes": [
+      "AF"
+    ],
+    "airlineNames": [
+      "Air France"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 730,
+    "fetchedAt": "2026-03-06T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_economy_83",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "economy",
+    "price": 92148,
+    "airlineCodes": [
+      "NH",
+      "AA"
+    ],
+    "airlineNames": [
+      "All Nippon Airways",
+      "American Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 730,
+    "fetchedAt": "2026-03-06T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_lax_nrt_business_84",
+    "flightSearch": "seed_search_lax_nrt",
+    "seatClass": "business",
+    "price": 345884,
+    "airlineCodes": [
+      "NH",
+      "AA"
+    ],
+    "airlineNames": [
+      "All Nippon Airways",
+      "American Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 730,
+    "fetchedAt": "2026-03-06T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_economy_85",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "economy",
+    "price": 110164,
+    "airlineCodes": [
+      "AA"
+    ],
+    "airlineNames": [
+      "American Airlines"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 600,
+    "fetchedAt": "2026-02-21T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_business_86",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "business",
+    "price": 449969,
+    "airlineCodes": [
+      "AA"
+    ],
+    "airlineNames": [
+      "American Airlines"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 600,
+    "fetchedAt": "2026-02-21T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_economy_87",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "economy",
+    "price": 110073,
+    "airlineCodes": [
+      "DL"
+    ],
+    "airlineNames": [
+      "Delta Air Lines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 600,
+    "fetchedAt": "2026-02-21T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_business_88",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "business",
+    "price": 450298,
+    "airlineCodes": [
+      "DL"
+    ],
+    "airlineNames": [
+      "Delta Air Lines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 600,
+    "fetchedAt": "2026-02-21T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_economy_89",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "economy",
+    "price": 109866,
+    "airlineCodes": [
+      "UA"
+    ],
+    "airlineNames": [
+      "United Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 600,
+    "fetchedAt": "2026-02-21T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_business_90",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "business",
+    "price": 450138,
+    "airlineCodes": [
+      "UA"
+    ],
+    "airlineNames": [
+      "United Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 600,
+    "fetchedAt": "2026-02-21T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_economy_91",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "economy",
+    "price": 110079,
+    "airlineCodes": [
+      "BA"
+    ],
+    "airlineNames": [
+      "British Airways"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 610,
+    "fetchedAt": "2026-02-22T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_business_92",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "business",
+    "price": 450297,
+    "airlineCodes": [
+      "BA"
+    ],
+    "airlineNames": [
+      "British Airways"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 610,
+    "fetchedAt": "2026-02-22T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_economy_93",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "economy",
+    "price": 110063,
+    "airlineCodes": [
+      "AF"
+    ],
+    "airlineNames": [
+      "Air France"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 610,
+    "fetchedAt": "2026-02-22T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_business_94",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "business",
+    "price": 450108,
+    "airlineCodes": [
+      "AF"
+    ],
+    "airlineNames": [
+      "Air France"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 610,
+    "fetchedAt": "2026-02-22T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_economy_95",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "economy",
+    "price": 109914,
+    "airlineCodes": [
+      "NH",
+      "AA"
+    ],
+    "airlineNames": [
+      "All Nippon Airways",
+      "American Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 610,
+    "fetchedAt": "2026-02-22T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_business_96",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "business",
+    "price": 450070,
+    "airlineCodes": [
+      "NH",
+      "AA"
+    ],
+    "airlineNames": [
+      "All Nippon Airways",
+      "American Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 610,
+    "fetchedAt": "2026-02-22T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_economy_97",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "economy",
+    "price": 109973,
+    "airlineCodes": [
+      "AA"
+    ],
+    "airlineNames": [
+      "American Airlines"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 620,
+    "fetchedAt": "2026-02-23T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_business_98",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "business",
+    "price": 449924,
+    "airlineCodes": [
+      "AA"
+    ],
+    "airlineNames": [
+      "American Airlines"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 620,
+    "fetchedAt": "2026-02-23T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_economy_99",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "economy",
+    "price": 109773,
+    "airlineCodes": [
+      "DL"
+    ],
+    "airlineNames": [
+      "Delta Air Lines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 620,
+    "fetchedAt": "2026-02-23T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_business_100",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "business",
+    "price": 449841,
+    "airlineCodes": [
+      "DL"
+    ],
+    "airlineNames": [
+      "Delta Air Lines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 620,
+    "fetchedAt": "2026-02-23T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_economy_101",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "economy",
+    "price": 109875,
+    "airlineCodes": [
+      "UA"
+    ],
+    "airlineNames": [
+      "United Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 620,
+    "fetchedAt": "2026-02-23T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_business_102",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "business",
+    "price": 450221,
+    "airlineCodes": [
+      "UA"
+    ],
+    "airlineNames": [
+      "United Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 620,
+    "fetchedAt": "2026-02-23T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_economy_103",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "economy",
+    "price": 110246,
+    "airlineCodes": [
+      "BA"
+    ],
+    "airlineNames": [
+      "British Airways"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 630,
+    "fetchedAt": "2026-02-24T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_business_104",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "business",
+    "price": 450205,
+    "airlineCodes": [
+      "BA"
+    ],
+    "airlineNames": [
+      "British Airways"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 630,
+    "fetchedAt": "2026-02-24T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_economy_105",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "economy",
+    "price": 109950,
+    "airlineCodes": [
+      "AF"
+    ],
+    "airlineNames": [
+      "Air France"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 630,
+    "fetchedAt": "2026-02-24T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_business_106",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "business",
+    "price": 449793,
+    "airlineCodes": [
+      "AF"
+    ],
+    "airlineNames": [
+      "Air France"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 630,
+    "fetchedAt": "2026-02-24T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_economy_107",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "economy",
+    "price": 109867,
+    "airlineCodes": [
+      "NH",
+      "AA"
+    ],
+    "airlineNames": [
+      "All Nippon Airways",
+      "American Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 630,
+    "fetchedAt": "2026-02-24T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_business_108",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "business",
+    "price": 449748,
+    "airlineCodes": [
+      "NH",
+      "AA"
+    ],
+    "airlineNames": [
+      "All Nippon Airways",
+      "American Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 630,
+    "fetchedAt": "2026-02-24T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_economy_109",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "economy",
+    "price": 110173,
+    "airlineCodes": [
+      "AA"
+    ],
+    "airlineNames": [
+      "American Airlines"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 640,
+    "fetchedAt": "2026-02-25T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_business_110",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "business",
+    "price": 449812,
+    "airlineCodes": [
+      "AA"
+    ],
+    "airlineNames": [
+      "American Airlines"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 640,
+    "fetchedAt": "2026-02-25T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_economy_111",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "economy",
+    "price": 110088,
+    "airlineCodes": [
+      "DL"
+    ],
+    "airlineNames": [
+      "Delta Air Lines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 640,
+    "fetchedAt": "2026-02-25T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_business_112",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "business",
+    "price": 449856,
+    "airlineCodes": [
+      "DL"
+    ],
+    "airlineNames": [
+      "Delta Air Lines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 640,
+    "fetchedAt": "2026-02-25T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_economy_113",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "economy",
+    "price": 109976,
+    "airlineCodes": [
+      "UA"
+    ],
+    "airlineNames": [
+      "United Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 640,
+    "fetchedAt": "2026-02-25T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_business_114",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "business",
+    "price": 449863,
+    "airlineCodes": [
+      "UA"
+    ],
+    "airlineNames": [
+      "United Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 640,
+    "fetchedAt": "2026-02-25T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_economy_115",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "economy",
+    "price": 110270,
+    "airlineCodes": [
+      "BA"
+    ],
+    "airlineNames": [
+      "British Airways"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 650,
+    "fetchedAt": "2026-02-26T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_business_116",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "business",
+    "price": 450132,
+    "airlineCodes": [
+      "BA"
+    ],
+    "airlineNames": [
+      "British Airways"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 650,
+    "fetchedAt": "2026-02-26T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_economy_117",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "economy",
+    "price": 109924,
+    "airlineCodes": [
+      "AF"
+    ],
+    "airlineNames": [
+      "Air France"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 650,
+    "fetchedAt": "2026-02-26T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_business_118",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "business",
+    "price": 449765,
+    "airlineCodes": [
+      "AF"
+    ],
+    "airlineNames": [
+      "Air France"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 650,
+    "fetchedAt": "2026-02-26T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_economy_119",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "economy",
+    "price": 110032,
+    "airlineCodes": [
+      "NH",
+      "AA"
+    ],
+    "airlineNames": [
+      "All Nippon Airways",
+      "American Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 650,
+    "fetchedAt": "2026-02-26T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_business_120",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "business",
+    "price": 450094,
+    "airlineCodes": [
+      "NH",
+      "AA"
+    ],
+    "airlineNames": [
+      "All Nippon Airways",
+      "American Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 650,
+    "fetchedAt": "2026-02-26T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_economy_121",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "economy",
+    "price": 109757,
+    "airlineCodes": [
+      "AA"
+    ],
+    "airlineNames": [
+      "American Airlines"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 660,
+    "fetchedAt": "2026-02-27T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_business_122",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "business",
+    "price": 450090,
+    "airlineCodes": [
+      "AA"
+    ],
+    "airlineNames": [
+      "American Airlines"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 660,
+    "fetchedAt": "2026-02-27T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_economy_123",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "economy",
+    "price": 109934,
+    "airlineCodes": [
+      "DL"
+    ],
+    "airlineNames": [
+      "Delta Air Lines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 660,
+    "fetchedAt": "2026-02-27T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_business_124",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "business",
+    "price": 450179,
+    "airlineCodes": [
+      "DL"
+    ],
+    "airlineNames": [
+      "Delta Air Lines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 660,
+    "fetchedAt": "2026-02-27T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_economy_125",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "economy",
+    "price": 109732,
+    "airlineCodes": [
+      "UA"
+    ],
+    "airlineNames": [
+      "United Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 660,
+    "fetchedAt": "2026-02-27T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_business_126",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "business",
+    "price": 450241,
+    "airlineCodes": [
+      "UA"
+    ],
+    "airlineNames": [
+      "United Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 660,
+    "fetchedAt": "2026-02-27T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_economy_127",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "economy",
+    "price": 82539,
+    "airlineCodes": [
+      "BA"
+    ],
+    "airlineNames": [
+      "British Airways"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 670,
+    "fetchedAt": "2026-02-28T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_business_128",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "business",
+    "price": 337572,
+    "airlineCodes": [
+      "BA"
+    ],
+    "airlineNames": [
+      "British Airways"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 670,
+    "fetchedAt": "2026-02-28T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_economy_129",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "economy",
+    "price": 82495,
+    "airlineCodes": [
+      "AF"
+    ],
+    "airlineNames": [
+      "Air France"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 670,
+    "fetchedAt": "2026-02-28T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_business_130",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "business",
+    "price": 337417,
+    "airlineCodes": [
+      "AF"
+    ],
+    "airlineNames": [
+      "Air France"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 670,
+    "fetchedAt": "2026-02-28T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_economy_131",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "economy",
+    "price": 82563,
+    "airlineCodes": [
+      "NH",
+      "AA"
+    ],
+    "airlineNames": [
+      "All Nippon Airways",
+      "American Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 670,
+    "fetchedAt": "2026-02-28T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_business_132",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "business",
+    "price": 337695,
+    "airlineCodes": [
+      "NH",
+      "AA"
+    ],
+    "airlineNames": [
+      "All Nippon Airways",
+      "American Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 670,
+    "fetchedAt": "2026-02-28T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_economy_133",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "economy",
+    "price": 82667,
+    "airlineCodes": [
+      "AA"
+    ],
+    "airlineNames": [
+      "American Airlines"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 680,
+    "fetchedAt": "2026-03-01T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_business_134",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "business",
+    "price": 337352,
+    "airlineCodes": [
+      "AA"
+    ],
+    "airlineNames": [
+      "American Airlines"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 680,
+    "fetchedAt": "2026-03-01T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_economy_135",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "economy",
+    "price": 82592,
+    "airlineCodes": [
+      "DL"
+    ],
+    "airlineNames": [
+      "Delta Air Lines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 680,
+    "fetchedAt": "2026-03-01T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_business_136",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "business",
+    "price": 337331,
+    "airlineCodes": [
+      "DL"
+    ],
+    "airlineNames": [
+      "Delta Air Lines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 680,
+    "fetchedAt": "2026-03-01T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_economy_137",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "economy",
+    "price": 82410,
+    "airlineCodes": [
+      "UA"
+    ],
+    "airlineNames": [
+      "United Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 680,
+    "fetchedAt": "2026-03-01T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_business_138",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "business",
+    "price": 337642,
+    "airlineCodes": [
+      "UA"
+    ],
+    "airlineNames": [
+      "United Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 680,
+    "fetchedAt": "2026-03-01T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_economy_139",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "economy",
+    "price": 82333,
+    "airlineCodes": [
+      "BA"
+    ],
+    "airlineNames": [
+      "British Airways"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 690,
+    "fetchedAt": "2026-03-02T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_business_140",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "business",
+    "price": 337351,
+    "airlineCodes": [
+      "BA"
+    ],
+    "airlineNames": [
+      "British Airways"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 690,
+    "fetchedAt": "2026-03-02T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_economy_141",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "economy",
+    "price": 82539,
+    "airlineCodes": [
+      "AF"
+    ],
+    "airlineNames": [
+      "Air France"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 690,
+    "fetchedAt": "2026-03-02T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_business_142",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "business",
+    "price": 337426,
+    "airlineCodes": [
+      "AF"
+    ],
+    "airlineNames": [
+      "Air France"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 690,
+    "fetchedAt": "2026-03-02T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_economy_143",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "economy",
+    "price": 82592,
+    "airlineCodes": [
+      "NH",
+      "AA"
+    ],
+    "airlineNames": [
+      "All Nippon Airways",
+      "American Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 690,
+    "fetchedAt": "2026-03-02T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_business_144",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "business",
+    "price": 337316,
+    "airlineCodes": [
+      "NH",
+      "AA"
+    ],
+    "airlineNames": [
+      "All Nippon Airways",
+      "American Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 690,
+    "fetchedAt": "2026-03-02T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_economy_145",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "economy",
+    "price": 82365,
+    "airlineCodes": [
+      "AA"
+    ],
+    "airlineNames": [
+      "American Airlines"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 700,
+    "fetchedAt": "2026-03-03T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_business_146",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "business",
+    "price": 337564,
+    "airlineCodes": [
+      "AA"
+    ],
+    "airlineNames": [
+      "American Airlines"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 700,
+    "fetchedAt": "2026-03-03T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_economy_147",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "economy",
+    "price": 82445,
+    "airlineCodes": [
+      "DL"
+    ],
+    "airlineNames": [
+      "Delta Air Lines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 700,
+    "fetchedAt": "2026-03-03T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_business_148",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "business",
+    "price": 337307,
+    "airlineCodes": [
+      "DL"
+    ],
+    "airlineNames": [
+      "Delta Air Lines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 700,
+    "fetchedAt": "2026-03-03T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_economy_149",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "economy",
+    "price": 82498,
+    "airlineCodes": [
+      "UA"
+    ],
+    "airlineNames": [
+      "United Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 700,
+    "fetchedAt": "2026-03-03T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_business_150",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "business",
+    "price": 337372,
+    "airlineCodes": [
+      "UA"
+    ],
+    "airlineNames": [
+      "United Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 700,
+    "fetchedAt": "2026-03-03T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_economy_151",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "economy",
+    "price": 82371,
+    "airlineCodes": [
+      "BA"
+    ],
+    "airlineNames": [
+      "British Airways"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 710,
+    "fetchedAt": "2026-03-04T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_business_152",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "business",
+    "price": 337526,
+    "airlineCodes": [
+      "BA"
+    ],
+    "airlineNames": [
+      "British Airways"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 710,
+    "fetchedAt": "2026-03-04T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_economy_153",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "economy",
+    "price": 82466,
+    "airlineCodes": [
+      "AF"
+    ],
+    "airlineNames": [
+      "Air France"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 710,
+    "fetchedAt": "2026-03-04T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_business_154",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "business",
+    "price": 337643,
+    "airlineCodes": [
+      "AF"
+    ],
+    "airlineNames": [
+      "Air France"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 710,
+    "fetchedAt": "2026-03-04T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_economy_155",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "economy",
+    "price": 82627,
+    "airlineCodes": [
+      "NH",
+      "AA"
+    ],
+    "airlineNames": [
+      "All Nippon Airways",
+      "American Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 710,
+    "fetchedAt": "2026-03-04T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_business_156",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "business",
+    "price": 337550,
+    "airlineCodes": [
+      "NH",
+      "AA"
+    ],
+    "airlineNames": [
+      "All Nippon Airways",
+      "American Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 710,
+    "fetchedAt": "2026-03-04T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_economy_157",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "economy",
+    "price": 82565,
+    "airlineCodes": [
+      "AA"
+    ],
+    "airlineNames": [
+      "American Airlines"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 720,
+    "fetchedAt": "2026-03-05T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_business_158",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "business",
+    "price": 337478,
+    "airlineCodes": [
+      "AA"
+    ],
+    "airlineNames": [
+      "American Airlines"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 720,
+    "fetchedAt": "2026-03-05T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_economy_159",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "economy",
+    "price": 82629,
+    "airlineCodes": [
+      "DL"
+    ],
+    "airlineNames": [
+      "Delta Air Lines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 720,
+    "fetchedAt": "2026-03-05T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_business_160",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "business",
+    "price": 337620,
+    "airlineCodes": [
+      "DL"
+    ],
+    "airlineNames": [
+      "Delta Air Lines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 720,
+    "fetchedAt": "2026-03-05T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_economy_161",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "economy",
+    "price": 82574,
+    "airlineCodes": [
+      "UA"
+    ],
+    "airlineNames": [
+      "United Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 720,
+    "fetchedAt": "2026-03-05T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_business_162",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "business",
+    "price": 337468,
+    "airlineCodes": [
+      "UA"
+    ],
+    "airlineNames": [
+      "United Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 720,
+    "fetchedAt": "2026-03-05T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_economy_163",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "economy",
+    "price": 82319,
+    "airlineCodes": [
+      "BA"
+    ],
+    "airlineNames": [
+      "British Airways"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 730,
+    "fetchedAt": "2026-03-06T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_business_164",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "business",
+    "price": 337699,
+    "airlineCodes": [
+      "BA"
+    ],
+    "airlineNames": [
+      "British Airways"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 730,
+    "fetchedAt": "2026-03-06T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_economy_165",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "economy",
+    "price": 82413,
+    "airlineCodes": [
+      "AF"
+    ],
+    "airlineNames": [
+      "Air France"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 730,
+    "fetchedAt": "2026-03-06T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_business_166",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "business",
+    "price": 337331,
+    "airlineCodes": [
+      "AF"
+    ],
+    "airlineNames": [
+      "Air France"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 730,
+    "fetchedAt": "2026-03-06T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_economy_167",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "economy",
+    "price": 82425,
+    "airlineCodes": [
+      "NH",
+      "AA"
+    ],
+    "airlineNames": [
+      "All Nippon Airways",
+      "American Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 730,
+    "fetchedAt": "2026-03-06T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_sfo_lhr_business_168",
+    "flightSearch": "seed_search_sfo_lhr",
+    "seatClass": "business",
+    "price": 337332,
+    "airlineCodes": [
+      "NH",
+      "AA"
+    ],
+    "airlineNames": [
+      "All Nippon Airways",
+      "American Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 730,
+    "fetchedAt": "2026-03-06T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_economy_169",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "economy",
+    "price": 64934,
+    "airlineCodes": [
+      "AA"
+    ],
+    "airlineNames": [
+      "American Airlines"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 600,
+    "fetchedAt": "2026-02-21T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_business_170",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "business",
+    "price": 280043,
+    "airlineCodes": [
+      "AA"
+    ],
+    "airlineNames": [
+      "American Airlines"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 600,
+    "fetchedAt": "2026-02-21T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_economy_171",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "economy",
+    "price": 65056,
+    "airlineCodes": [
+      "DL"
+    ],
+    "airlineNames": [
+      "Delta Air Lines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 600,
+    "fetchedAt": "2026-02-21T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_business_172",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "business",
+    "price": 280081,
+    "airlineCodes": [
+      "DL"
+    ],
+    "airlineNames": [
+      "Delta Air Lines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 600,
+    "fetchedAt": "2026-02-21T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_economy_173",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "economy",
+    "price": 65190,
+    "airlineCodes": [
+      "UA"
+    ],
+    "airlineNames": [
+      "United Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 600,
+    "fetchedAt": "2026-02-21T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_business_174",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "business",
+    "price": 279884,
+    "airlineCodes": [
+      "UA"
+    ],
+    "airlineNames": [
+      "United Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 600,
+    "fetchedAt": "2026-02-21T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_economy_175",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "economy",
+    "price": 64891,
+    "airlineCodes": [
+      "BA"
+    ],
+    "airlineNames": [
+      "British Airways"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 610,
+    "fetchedAt": "2026-02-22T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_business_176",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "business",
+    "price": 279935,
+    "airlineCodes": [
+      "BA"
+    ],
+    "airlineNames": [
+      "British Airways"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 610,
+    "fetchedAt": "2026-02-22T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_economy_177",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "economy",
+    "price": 65059,
+    "airlineCodes": [
+      "AF"
+    ],
+    "airlineNames": [
+      "Air France"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 610,
+    "fetchedAt": "2026-02-22T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_business_178",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "business",
+    "price": 280070,
+    "airlineCodes": [
+      "AF"
+    ],
+    "airlineNames": [
+      "Air France"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 610,
+    "fetchedAt": "2026-02-22T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_economy_179",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "economy",
+    "price": 64854,
+    "airlineCodes": [
+      "NH",
+      "AA"
+    ],
+    "airlineNames": [
+      "All Nippon Airways",
+      "American Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 610,
+    "fetchedAt": "2026-02-22T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_business_180",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "business",
+    "price": 280110,
+    "airlineCodes": [
+      "NH",
+      "AA"
+    ],
+    "airlineNames": [
+      "All Nippon Airways",
+      "American Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 610,
+    "fetchedAt": "2026-02-22T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_economy_181",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "economy",
+    "price": 65120,
+    "airlineCodes": [
+      "AA"
+    ],
+    "airlineNames": [
+      "American Airlines"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 620,
+    "fetchedAt": "2026-02-23T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_business_182",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "business",
+    "price": 280016,
+    "airlineCodes": [
+      "AA"
+    ],
+    "airlineNames": [
+      "American Airlines"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 620,
+    "fetchedAt": "2026-02-23T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_economy_183",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "economy",
+    "price": 64952,
+    "airlineCodes": [
+      "DL"
+    ],
+    "airlineNames": [
+      "Delta Air Lines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 620,
+    "fetchedAt": "2026-02-23T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_business_184",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "business",
+    "price": 279908,
+    "airlineCodes": [
+      "DL"
+    ],
+    "airlineNames": [
+      "Delta Air Lines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 620,
+    "fetchedAt": "2026-02-23T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_economy_185",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "economy",
+    "price": 65127,
+    "airlineCodes": [
+      "UA"
+    ],
+    "airlineNames": [
+      "United Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 620,
+    "fetchedAt": "2026-02-23T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_business_186",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "business",
+    "price": 280076,
+    "airlineCodes": [
+      "UA"
+    ],
+    "airlineNames": [
+      "United Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 620,
+    "fetchedAt": "2026-02-23T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_economy_187",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "economy",
+    "price": 65059,
+    "airlineCodes": [
+      "BA"
+    ],
+    "airlineNames": [
+      "British Airways"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 630,
+    "fetchedAt": "2026-02-24T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_business_188",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "business",
+    "price": 280186,
+    "airlineCodes": [
+      "BA"
+    ],
+    "airlineNames": [
+      "British Airways"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 630,
+    "fetchedAt": "2026-02-24T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_economy_189",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "economy",
+    "price": 65111,
+    "airlineCodes": [
+      "AF"
+    ],
+    "airlineNames": [
+      "Air France"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 630,
+    "fetchedAt": "2026-02-24T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_business_190",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "business",
+    "price": 280173,
+    "airlineCodes": [
+      "AF"
+    ],
+    "airlineNames": [
+      "Air France"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 630,
+    "fetchedAt": "2026-02-24T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_economy_191",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "economy",
+    "price": 64901,
+    "airlineCodes": [
+      "NH",
+      "AA"
+    ],
+    "airlineNames": [
+      "All Nippon Airways",
+      "American Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 630,
+    "fetchedAt": "2026-02-24T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_business_192",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "business",
+    "price": 280153,
+    "airlineCodes": [
+      "NH",
+      "AA"
+    ],
+    "airlineNames": [
+      "All Nippon Airways",
+      "American Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 630,
+    "fetchedAt": "2026-02-24T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_economy_193",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "economy",
+    "price": 64878,
+    "airlineCodes": [
+      "AA"
+    ],
+    "airlineNames": [
+      "American Airlines"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 640,
+    "fetchedAt": "2026-02-25T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_business_194",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "business",
+    "price": 279902,
+    "airlineCodes": [
+      "AA"
+    ],
+    "airlineNames": [
+      "American Airlines"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 640,
+    "fetchedAt": "2026-02-25T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_economy_195",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "economy",
+    "price": 64991,
+    "airlineCodes": [
+      "DL"
+    ],
+    "airlineNames": [
+      "Delta Air Lines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 640,
+    "fetchedAt": "2026-02-25T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_business_196",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "business",
+    "price": 280165,
+    "airlineCodes": [
+      "DL"
+    ],
+    "airlineNames": [
+      "Delta Air Lines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 640,
+    "fetchedAt": "2026-02-25T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_economy_197",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "economy",
+    "price": 65190,
+    "airlineCodes": [
+      "UA"
+    ],
+    "airlineNames": [
+      "United Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 640,
+    "fetchedAt": "2026-02-25T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_business_198",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "business",
+    "price": 279959,
+    "airlineCodes": [
+      "UA"
+    ],
+    "airlineNames": [
+      "United Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 640,
+    "fetchedAt": "2026-02-25T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_economy_199",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "economy",
+    "price": 64882,
+    "airlineCodes": [
+      "BA"
+    ],
+    "airlineNames": [
+      "British Airways"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 650,
+    "fetchedAt": "2026-02-26T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_business_200",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "business",
+    "price": 280004,
+    "airlineCodes": [
+      "BA"
+    ],
+    "airlineNames": [
+      "British Airways"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 650,
+    "fetchedAt": "2026-02-26T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_economy_201",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "economy",
+    "price": 65076,
+    "airlineCodes": [
+      "AF"
+    ],
+    "airlineNames": [
+      "Air France"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 650,
+    "fetchedAt": "2026-02-26T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_business_202",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "business",
+    "price": 280143,
+    "airlineCodes": [
+      "AF"
+    ],
+    "airlineNames": [
+      "Air France"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 650,
+    "fetchedAt": "2026-02-26T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_economy_203",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "economy",
+    "price": 65198,
+    "airlineCodes": [
+      "NH",
+      "AA"
+    ],
+    "airlineNames": [
+      "All Nippon Airways",
+      "American Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 650,
+    "fetchedAt": "2026-02-26T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_business_204",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "business",
+    "price": 280132,
+    "airlineCodes": [
+      "NH",
+      "AA"
+    ],
+    "airlineNames": [
+      "All Nippon Airways",
+      "American Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 650,
+    "fetchedAt": "2026-02-26T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_economy_205",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "economy",
+    "price": 65071,
+    "airlineCodes": [
+      "AA"
+    ],
+    "airlineNames": [
+      "American Airlines"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 660,
+    "fetchedAt": "2026-02-27T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_business_206",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "business",
+    "price": 279991,
+    "airlineCodes": [
+      "AA"
+    ],
+    "airlineNames": [
+      "American Airlines"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 660,
+    "fetchedAt": "2026-02-27T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_economy_207",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "economy",
+    "price": 64800,
+    "airlineCodes": [
+      "DL"
+    ],
+    "airlineNames": [
+      "Delta Air Lines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 660,
+    "fetchedAt": "2026-02-27T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_business_208",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "business",
+    "price": 280024,
+    "airlineCodes": [
+      "DL"
+    ],
+    "airlineNames": [
+      "Delta Air Lines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 660,
+    "fetchedAt": "2026-02-27T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_economy_209",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "economy",
+    "price": 65106,
+    "airlineCodes": [
+      "UA"
+    ],
+    "airlineNames": [
+      "United Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 660,
+    "fetchedAt": "2026-02-27T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_business_210",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "business",
+    "price": 280064,
+    "airlineCodes": [
+      "UA"
+    ],
+    "airlineNames": [
+      "United Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 660,
+    "fetchedAt": "2026-02-27T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_economy_211",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "economy",
+    "price": 64965,
+    "airlineCodes": [
+      "BA"
+    ],
+    "airlineNames": [
+      "British Airways"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 670,
+    "fetchedAt": "2026-02-28T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_business_212",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "business",
+    "price": 280031,
+    "airlineCodes": [
+      "BA"
+    ],
+    "airlineNames": [
+      "British Airways"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 670,
+    "fetchedAt": "2026-02-28T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_economy_213",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "economy",
+    "price": 65050,
+    "airlineCodes": [
+      "AF"
+    ],
+    "airlineNames": [
+      "Air France"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 670,
+    "fetchedAt": "2026-02-28T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_business_214",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "business",
+    "price": 279861,
+    "airlineCodes": [
+      "AF"
+    ],
+    "airlineNames": [
+      "Air France"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 670,
+    "fetchedAt": "2026-02-28T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_economy_215",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "economy",
+    "price": 64809,
+    "airlineCodes": [
+      "NH",
+      "AA"
+    ],
+    "airlineNames": [
+      "All Nippon Airways",
+      "American Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 670,
+    "fetchedAt": "2026-02-28T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_business_216",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "business",
+    "price": 279926,
+    "airlineCodes": [
+      "NH",
+      "AA"
+    ],
+    "airlineNames": [
+      "All Nippon Airways",
+      "American Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 670,
+    "fetchedAt": "2026-02-28T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_economy_217",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "economy",
+    "price": 64857,
+    "airlineCodes": [
+      "AA"
+    ],
+    "airlineNames": [
+      "American Airlines"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 680,
+    "fetchedAt": "2026-03-01T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_business_218",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "business",
+    "price": 279915,
+    "airlineCodes": [
+      "AA"
+    ],
+    "airlineNames": [
+      "American Airlines"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 680,
+    "fetchedAt": "2026-03-01T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_economy_219",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "economy",
+    "price": 64985,
+    "airlineCodes": [
+      "DL"
+    ],
+    "airlineNames": [
+      "Delta Air Lines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 680,
+    "fetchedAt": "2026-03-01T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_business_220",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "business",
+    "price": 279832,
+    "airlineCodes": [
+      "DL"
+    ],
+    "airlineNames": [
+      "Delta Air Lines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 680,
+    "fetchedAt": "2026-03-01T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_economy_221",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "economy",
+    "price": 64957,
+    "airlineCodes": [
+      "UA"
+    ],
+    "airlineNames": [
+      "United Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 680,
+    "fetchedAt": "2026-03-01T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_business_222",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "business",
+    "price": 279973,
+    "airlineCodes": [
+      "UA"
+    ],
+    "airlineNames": [
+      "United Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 680,
+    "fetchedAt": "2026-03-01T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_economy_223",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "economy",
+    "price": 64922,
+    "airlineCodes": [
+      "BA"
+    ],
+    "airlineNames": [
+      "British Airways"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 690,
+    "fetchedAt": "2026-03-02T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_business_224",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "business",
+    "price": 279810,
+    "airlineCodes": [
+      "BA"
+    ],
+    "airlineNames": [
+      "British Airways"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 690,
+    "fetchedAt": "2026-03-02T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_economy_225",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "economy",
+    "price": 64829,
+    "airlineCodes": [
+      "AF"
+    ],
+    "airlineNames": [
+      "Air France"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 690,
+    "fetchedAt": "2026-03-02T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_business_226",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "business",
+    "price": 280101,
+    "airlineCodes": [
+      "AF"
+    ],
+    "airlineNames": [
+      "Air France"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 690,
+    "fetchedAt": "2026-03-02T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_economy_227",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "economy",
+    "price": 64923,
+    "airlineCodes": [
+      "NH",
+      "AA"
+    ],
+    "airlineNames": [
+      "All Nippon Airways",
+      "American Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 690,
+    "fetchedAt": "2026-03-02T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_business_228",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "business",
+    "price": 280083,
+    "airlineCodes": [
+      "NH",
+      "AA"
+    ],
+    "airlineNames": [
+      "All Nippon Airways",
+      "American Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 690,
+    "fetchedAt": "2026-03-02T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_economy_229",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "economy",
+    "price": 65090,
+    "airlineCodes": [
+      "AA"
+    ],
+    "airlineNames": [
+      "American Airlines"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 700,
+    "fetchedAt": "2026-03-03T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_business_230",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "business",
+    "price": 279917,
+    "airlineCodes": [
+      "AA"
+    ],
+    "airlineNames": [
+      "American Airlines"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 700,
+    "fetchedAt": "2026-03-03T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_economy_231",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "economy",
+    "price": 64840,
+    "airlineCodes": [
+      "DL"
+    ],
+    "airlineNames": [
+      "Delta Air Lines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 700,
+    "fetchedAt": "2026-03-03T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_business_232",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "business",
+    "price": 280101,
+    "airlineCodes": [
+      "DL"
+    ],
+    "airlineNames": [
+      "Delta Air Lines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 700,
+    "fetchedAt": "2026-03-03T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_economy_233",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "economy",
+    "price": 64843,
+    "airlineCodes": [
+      "UA"
+    ],
+    "airlineNames": [
+      "United Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 700,
+    "fetchedAt": "2026-03-03T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_business_234",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "business",
+    "price": 279912,
+    "airlineCodes": [
+      "UA"
+    ],
+    "airlineNames": [
+      "United Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 700,
+    "fetchedAt": "2026-03-03T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_economy_235",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "economy",
+    "price": 65174,
+    "airlineCodes": [
+      "BA"
+    ],
+    "airlineNames": [
+      "British Airways"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 710,
+    "fetchedAt": "2026-03-04T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_business_236",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "business",
+    "price": 279803,
+    "airlineCodes": [
+      "BA"
+    ],
+    "airlineNames": [
+      "British Airways"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 710,
+    "fetchedAt": "2026-03-04T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_economy_237",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "economy",
+    "price": 65048,
+    "airlineCodes": [
+      "AF"
+    ],
+    "airlineNames": [
+      "Air France"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 710,
+    "fetchedAt": "2026-03-04T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_business_238",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "business",
+    "price": 279836,
+    "airlineCodes": [
+      "AF"
+    ],
+    "airlineNames": [
+      "Air France"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 710,
+    "fetchedAt": "2026-03-04T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_economy_239",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "economy",
+    "price": 64835,
+    "airlineCodes": [
+      "NH",
+      "AA"
+    ],
+    "airlineNames": [
+      "All Nippon Airways",
+      "American Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 710,
+    "fetchedAt": "2026-03-04T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_business_240",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "business",
+    "price": 280162,
+    "airlineCodes": [
+      "NH",
+      "AA"
+    ],
+    "airlineNames": [
+      "All Nippon Airways",
+      "American Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 710,
+    "fetchedAt": "2026-03-04T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_economy_241",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "economy",
+    "price": 65189,
+    "airlineCodes": [
+      "AA"
+    ],
+    "airlineNames": [
+      "American Airlines"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 720,
+    "fetchedAt": "2026-03-05T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_business_242",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "business",
+    "price": 280123,
+    "airlineCodes": [
+      "AA"
+    ],
+    "airlineNames": [
+      "American Airlines"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 720,
+    "fetchedAt": "2026-03-05T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_economy_243",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "economy",
+    "price": 65072,
+    "airlineCodes": [
+      "DL"
+    ],
+    "airlineNames": [
+      "Delta Air Lines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 720,
+    "fetchedAt": "2026-03-05T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_business_244",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "business",
+    "price": 279830,
+    "airlineCodes": [
+      "DL"
+    ],
+    "airlineNames": [
+      "Delta Air Lines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 720,
+    "fetchedAt": "2026-03-05T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_economy_245",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "economy",
+    "price": 65192,
+    "airlineCodes": [
+      "UA"
+    ],
+    "airlineNames": [
+      "United Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 720,
+    "fetchedAt": "2026-03-05T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_business_246",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "business",
+    "price": 279917,
+    "airlineCodes": [
+      "UA"
+    ],
+    "airlineNames": [
+      "United Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 720,
+    "fetchedAt": "2026-03-05T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_economy_247",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "economy",
+    "price": 64864,
+    "airlineCodes": [
+      "BA"
+    ],
+    "airlineNames": [
+      "British Airways"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 730,
+    "fetchedAt": "2026-03-06T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_business_248",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "business",
+    "price": 279834,
+    "airlineCodes": [
+      "BA"
+    ],
+    "airlineNames": [
+      "British Airways"
+    ],
+    "flightType": "direct",
+    "durationMinutes": 730,
+    "fetchedAt": "2026-03-06T05:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_economy_249",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "economy",
+    "price": 64865,
+    "airlineCodes": [
+      "AF"
+    ],
+    "airlineNames": [
+      "Air France"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 730,
+    "fetchedAt": "2026-03-06T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_business_250",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "business",
+    "price": 279816,
+    "airlineCodes": [
+      "AF"
+    ],
+    "airlineNames": [
+      "Air France"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 730,
+    "fetchedAt": "2026-03-06T11:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_economy_251",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "economy",
+    "price": 65137,
+    "airlineCodes": [
+      "NH",
+      "AA"
+    ],
+    "airlineNames": [
+      "All Nippon Airways",
+      "American Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 730,
+    "fetchedAt": "2026-03-06T17:55:19.000Z"
+  },
+  {
+    "id": "seed_snap_jfk_cdg_business_252",
+    "flightSearch": "seed_search_jfk_cdg",
+    "seatClass": "business",
+    "price": 279969,
+    "airlineCodes": [
+      "NH",
+      "AA"
+    ],
+    "airlineNames": [
+      "All Nippon Airways",
+      "American Airlines"
+    ],
+    "flightType": "1 stop",
+    "durationMinutes": 730,
+    "fetchedAt": "2026-03-06T17:55:19.000Z"
+  }
+]

@@ -1,0 +1,60 @@
+/**
+ * Represents a single price data point for a flight search.
+ */
+entity type PriceSnapshot {
+
+  /**
+   * Reference to the FlightSearch entity for which this snapshot is created.
+   */
+  flightSearch: !FlightSearch
+
+  /**
+   * The class of seats for which the price is recorded.
+   */
+  seatClass: !string enum('economy', 'business')
+
+  /**
+   * The price of the flight in cents (e.g., 85000 = $850).
+   */
+  price: !int
+
+  /**
+   * Array of airline IATA codes (e.g., ["AA", "DL"]).
+   */
+  airlineCodes: [string]
+
+  /**
+   * Array of airline names (e.g., ["American Airlines"]).
+   */
+  airlineNames: [string]
+
+  /**
+   * The type of flight (e.g., "direct", "1 stop").
+   */
+  flightType: string
+
+  /**
+   * The total duration of the flight in minutes.
+   */
+  durationMinutes: int
+
+  /**
+   * The timestamp when the price was fetched/scraped.
+   */
+  fetchedAt: !datetime
+
+  /**
+   * Retrieves the price history for a given search, optionally filtered by seat class.
+   * @param searchId The ID of the flight search.
+   * @param seatClass The seat class to filter by (empty string for all).
+   * @return Array of PriceSnapshot objects ordered by fetchedAt ascending.
+   */
+  getHistory: function(searchId: string, seatClass: string): [PriceSnapshot] js-server
+
+  /**
+   * Fetches live prices from Google Flights and stores them as new snapshots.
+   * @param searchId The ID of the flight search to fetch prices for.
+   * @return Array of newly created PriceSnapshot objects.
+   */
+  fetchNow: function(searchId: string): [PriceSnapshot] py
+}

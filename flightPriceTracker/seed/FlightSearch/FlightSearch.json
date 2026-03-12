@@ -1,0 +1,39 @@
+[
+  {
+    "id": "seed_search_lax_nrt",
+    "fromAirport": "LAX",
+    "toAirport": "NRT",
+    "tripType": "one-way",
+    "outboundDate": "2026-04-04T00:00:00.000Z",
+    "passengersAdults": 1,
+    "language": "en-US",
+    "currency": "USD",
+    "searchStatus": "active",
+    "isTestData": true
+  },
+  {
+    "id": "seed_search_sfo_lhr",
+    "fromAirport": "SFO",
+    "toAirport": "LHR",
+    "tripType": "round-trip",
+    "outboundDate": "2026-04-19T00:00:00.000Z",
+    "returnDate": "2026-04-29T00:00:00.000Z",
+    "passengersAdults": 2,
+    "language": "en-US",
+    "currency": "USD",
+    "searchStatus": "active",
+    "isTestData": true
+  },
+  {
+    "id": "seed_search_jfk_cdg",
+    "fromAirport": "JFK",
+    "toAirport": "CDG",
+    "tripType": "one-way",
+    "outboundDate": "2026-03-26T00:00:00.000Z",
+    "passengersAdults": 1,
+    "language": "en-US",
+    "currency": "USD",
+    "searchStatus": "active",
+    "isTestData": true
+  }
+]

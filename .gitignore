@@ -1,0 +1,29 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Node (used by OpenAPI tooling only)
+node_modules/
+
+# IDE
+.vscode/
+.idea/
+.cursor/
+
+# Environment
+.env
+.env.local
+
+# C3 generated
+flightPriceTracker/gen/
+flightPriceTracker/.fingerprints.txt
+flightPriceTracker/jsconfig.json
+
+# OS
+.DS_Store
+
+# Logs
+logs/
+*.log

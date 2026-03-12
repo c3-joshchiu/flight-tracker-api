@@ -1,0 +1,6 @@
+{
+  "name": "flightPriceTracker",
+  "description": "Flight Price Tracker - monitors airline prices, detects trends, and alerts users",
+  "dependencies": {},
+  "version": "1.0.0"
+}
