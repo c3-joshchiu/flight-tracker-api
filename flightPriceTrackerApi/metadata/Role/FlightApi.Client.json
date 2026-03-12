@@ -1,0 +1,16 @@
+{
+  "id": "FlightApi.Client",
+  "description": "Minimal role for UI app to call FlightSearchApi REST endpoints",
+  "permissions": [
+    "allow:FlightSearchApi::handle",
+    "allow:FlightSearch::getAll",
+    "allow:FlightSearch::getById",
+    "allow:FlightSearch::createSearch",
+    "allow:FlightSearch::updateSearchStatus",
+    "allow:FlightSearch::deleteSearch",
+    "allow:FlightSearch::computeAlert",
+    "allow:FlightSearch::getLatestPrice",
+    "allow:PriceSnapshot::getHistory",
+    "allow:PriceSnapshot::fetchNow"
+  ]
+}
