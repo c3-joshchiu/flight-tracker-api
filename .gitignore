@@ -7,22 +7,25 @@ __pycache__/
 # Node (used by OpenAPI tooling only)
 node_modules/
 
-# IDE
-.vscode/
-.idea/
-.cursor/
-
 # Environment
 .env
 .env.local
 
 # C3 generated
-flightPriceTrackerApi/gen/
-flightPriceTrackerApi/.fingerprints.txt
-flightPriceTrackerApi/jsconfig.json
+**/gen/cache/**
+**/.fingerprints.txt
+**/jsconfig.json
+.vs-cache
+.c3nbrc.js
+
+# IDE
+.vscode/
+.idea/
+.cursor/
 
 # OS
 .DS_Store
+Thumbs.db
 
 # Logs
 logs/
