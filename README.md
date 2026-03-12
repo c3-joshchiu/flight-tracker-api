@@ -79,8 +79,8 @@ A single price data point for a search, captured at a point in time.
 ## Project Structure
 
 ```
-flightPriceTracker/
-├── flightPriceTracker.c3pkg.json
+flightPriceTrackerApi/
+├── flightPriceTrackerApi.c3pkg.json
 ├── src/
 │   ├── FlightSearch.c3typ
 │   ├── FlightSearch.js           # getAll, getById, createSearch, updateSearchStatus, deleteSearch, getLatestPrice
@@ -110,7 +110,7 @@ scripts/
 
 ### Provision and verify
 
-1. Provision the `flightPriceTracker` package to your C3 environment.
+1. Provision the `flightPriceTrackerApi` package to your C3 environment.
 
 2. Verify entity methods via the C3 console:
 
@@ -126,7 +126,7 @@ FlightSearch.createSearch({
 3. Verify REST endpoints via curl:
 
 ```bash
-BASE="https://<cluster>/<env>/flightpricetracker/flights"
+BASE="https://<cluster>/<env>/flightpricetrackerapi/flights"
 TOKEN="<your-c3auth-token>"
 
 # List searches
@@ -157,7 +157,7 @@ This repo **owns** the OpenAPI spec. Any endpoint change starts with a spec chan
 ```
 openapi/flights-api.yaml   (this repo — source of truth)
        │
-       ├──→  flight-tracker-ui    pulls spec, runs openapi-typescript, generates typed client
+       ├──→  flightTrackerUi      pulls spec, runs openapi-typescript, generates typed client
        ├──→  agent / MCP server   pulls spec, generates Python/JS client
        └──→  CI                   validates implementation matches spec
 ```

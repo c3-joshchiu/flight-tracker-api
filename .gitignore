@@ -17,9 +17,9 @@ node_modules/
 .env.local
 
 # C3 generated
-flightPriceTracker/gen/
-flightPriceTracker/.fingerprints.txt
-flightPriceTracker/jsconfig.json
+flightPriceTrackerApi/gen/
+flightPriceTrackerApi/.fingerprints.txt
+flightPriceTrackerApi/jsconfig.json
 
 # OS
 .DS_Store

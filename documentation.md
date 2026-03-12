@@ -4,7 +4,7 @@
 
 Backend service that tracks airline flight prices over time using Google Flights
 data, detects week-over-week price trends, and exposes a RESTful API for any
-HTTP consumer. Built as a C3 AI Platform package.
+HTTP consumer. Built as a C3 AI Platform package (`flightPriceTrackerApi`).
 
 ## Architecture
 
@@ -206,7 +206,7 @@ The OpenAPI spec at `openapi/flights-api.yaml` is the source of truth.
 ```
 openapi/flights-api.yaml   (this repo owns it)
        │
-       ├──→  flight-tracker-ui    pulls spec → openapi-typescript → typed client
+       ├──→  flightTrackerUi      pulls spec → openapi-typescript → typed client
        ├──→  agent / MCP server   pulls spec → generates Python/JS client
        └──→  CI                   validates responses match spec
 ```
