@@ -199,6 +199,34 @@ Files:
 - `seed/FlightSearch/FlightSearch.json` — 3 search records
 - `seed/PriceSnapshot/PriceSnapshot.json` — 252 price snapshot records
 
+## Startup Hook
+
+`src/App.js` implements `afterStart()`, which the C3 platform calls after
+every app start (provision, upgrade, wake from hibernation):
+
+```javascript
+function afterStart() {
+  UserGroup.upsertSeededGroups();
+}
+```
+
+This seeds the `FlightApi.Client` UserGroup/Role from
+`metadata/Role/FlightApi.Client.json`. The call is idempotent (upsert
+semantics). No manual console command required after initial provision.
+
+## Authentication & OAuth
+
+The API accepts both `c3auth` cookies (browser sessions) and OAuth Bearer
+tokens (machine clients). OAuth clients are registered via the C3 console
+as a one-time ops step — see `../secret-config.md`.
+
+The `FlightApi.Client` role grants least-privilege access to the REST
+surface only. See `metadata/Role/FlightApi.Client.json` for the full
+permission list.
+
+For the auth handshake details and C3 platform quirks, see
+`integration-guide.md`.
+
 ## API Contract
 
 The OpenAPI spec at `openapi/flights-api.yaml` is the source of truth.

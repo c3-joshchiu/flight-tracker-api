@@ -2,16 +2,39 @@ openapi: 3.1.0
 info:
   title: Flight Price Tracker API
   version: 1.0.0
-  description: >
-    RESTful API for flight search and price tracking.
-    Exposed via C3 @restful annotation with Restful mixin (js-server).
-    See https://docs.c3.ai/docs/platform/8.9/type/Ann.Restful
+  description: |
+    RESTful API for flight search and price tracking on the C3 AI Platform.
+
+    ## Authentication
+
+    This API uses **OAuth 2.0 Client Credentials** (RFC 6749 §4.4).
+    The token endpoint is at `/{env}/{app}/oauth/token` (outside the
+    `/flights` base path). See the `oauthToken` security scheme below.
+
+    **C3 platform requirement:** The token request must include **both**
+    an `Authorization: Basic` header and the credentials in the form body.
+    Omitting the Basic header results in a `302` redirect instead of a token.
+
+    See `api-contract.md` for the full integration guide, curl walkthrough,
+    and client library examples.
+  contact:
+    name: Flight Price Tracker Team
+  license:
+    name: Proprietary
 
 servers:
-  - url: "{baseUrl}/flights"
+  - url: https://{host}/{env}/flightpricetrackerapi/flights
+    description: C3 AI Platform deployment
     variables:
-      baseUrl:
-        default: "."
+      host:
+        default: c3azcs.c3.ai
+        description: Platform hostname
+      env:
+        default: jchiutest18
+        description: C3 environment/tenant name
+
+security:
+  - oauthBearer: []
 
 paths:
   /searches:
@@ -28,6 +51,21 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/FlightSearch"
+              example:
+                - id: seed_search_sfo_lhr
+                  version: 1
+                  fromAirport: SFO
+                  toAirport: LHR
+                  tripType: round-trip
+                  outboundDate: "2026-04-19T00:00:00Z"
+                  returnDate: "2026-04-29T00:00:00Z"
+                  passengersAdults: 2
+                  language: en-US
+                  currency: USD
+                  searchStatus: active
+                  isTestData: true
+        "401":
+          $ref: "#/components/responses/Unauthorized"
 
     post:
       operationId: createSearch
@@ -38,6 +76,13 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/SearchCreateInput"
+            example:
+              fromAirport: SFO
+              toAirport: LHR
+              outboundDate: "2026-04-19"
+              tripType: round-trip
+              returnDate: "2026-04-29"
+              passengersAdults: 2
       responses:
         "200":
           description: The created search with searchStatus "active"
@@ -47,13 +92,16 @@ paths:
                 $ref: "#/components/schemas/FlightSearch"
         "400":
           $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
 
   /searches/{id}:
+    parameters:
+      - $ref: "#/components/parameters/SearchId"
+
     get:
       operationId: getSearch
       summary: Get a single search by ID
-      parameters:
-        - $ref: "#/components/parameters/SearchId"
       responses:
         "200":
           description: The search entity with all fields
@@ -63,12 +111,12 @@ paths:
                 $ref: "#/components/schemas/FlightSearch"
         "404":
           $ref: "#/components/responses/NotFound"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
 
     patch:
       operationId: updateSearch
       summary: Update search status
-      parameters:
-        - $ref: "#/components/parameters/SearchId"
       requestBody:
         required: true
         content:
@@ -80,6 +128,8 @@ paths:
                 searchStatus:
                   type: string
                   enum: [active, disabled]
+            example:
+              searchStatus: disabled
       responses:
         "200":
           description: The updated search
@@ -91,29 +141,33 @@ paths:
           $ref: "#/components/responses/BadRequest"
         "404":
           $ref: "#/components/responses/NotFound"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
 
     delete:
       operationId: deleteSearch
       summary: Delete a search and all its snapshots
-      parameters:
-        - $ref: "#/components/parameters/SearchId"
+      description: Permanently removes the search and all associated PriceSnapshot records.
       responses:
         "200":
           description: Deleted successfully (empty body)
         "404":
           $ref: "#/components/responses/NotFound"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
 
   /searches/{id}/alert:
+    parameters:
+      - $ref: "#/components/parameters/SearchId"
+
     get:
       operationId: getAlert
       summary: Compute price trend alert
-      description: >
+      description: |
         Analyzes the last 14 days of economy snapshots to detect price trends.
-        Red: 5+ of 7 current-week daily prices exceed previous week.
-        Green: Current week average is 20%+ lower than previous week.
-        Grey: Insufficient data or no significant change.
-      parameters:
-        - $ref: "#/components/parameters/SearchId"
+        - **Red:** 5+ of 7 current-week daily prices exceed previous week.
+        - **Green:** Current week average is 20%+ lower than previous week.
+        - **Grey:** Insufficient data or no significant change.
       responses:
         "200":
           description: Alert result with trend analysis
@@ -121,16 +175,31 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/AlertResult"
+              example:
+                searchId: seed_search_lax_nrt
+                status: green
+                message: "Prices dropped 22% vs. last week"
+                currentWeekAvg: 78200
+                previousWeekAvg: 100300
+                percentChange: -22.03
+                daysRising: 1
+                cheapestAirline: All Nippon Airways
+                googleFlightsUrl: "https://www.google.com/travel/flights/search?tfs=..."
+        "401":
+          $ref: "#/components/responses/Unauthorized"
 
   /searches/{id}/prices:
+    parameters:
+      - $ref: "#/components/parameters/SearchId"
+
     get:
       operationId: getPrices
       summary: Price history for a search
       parameters:
-        - $ref: "#/components/parameters/SearchId"
         - name: seatClass
           in: query
-          description: Filter by seat class (omit for all classes)
+          description: Filter by seat class. Omit to return all classes.
+          required: false
           schema:
             type: string
             enum: [economy, business]
@@ -143,13 +212,16 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/PriceSnapshot"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
 
   /searches/{id}/latest-price:
+    parameters:
+      - $ref: "#/components/parameters/SearchId"
+
     get:
       operationId: getLatestPrice
       summary: Most recent economy snapshot
-      parameters:
-        - $ref: "#/components/parameters/SearchId"
       responses:
         "200":
           description: Latest economy snapshot, or null if none exist
@@ -159,19 +231,23 @@ paths:
                 oneOf:
                   - $ref: "#/components/schemas/PriceSnapshot"
                   - type: "null"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
 
   /searches/{id}/fetch:
+    parameters:
+      - $ref: "#/components/parameters/SearchId"
+
     post:
       operationId: triggerFetch
       summary: Trigger live price scrape
-      description: >
+      description: |
         Scrapes Google Flights for both economy and business classes.
-        Silently skips seat classes where the live fetch fails (no mock fallback).
-      parameters:
-        - $ref: "#/components/parameters/SearchId"
+        Returns 0-2 snapshots depending on which seat classes succeed.
+        No request body required.
       responses:
         "200":
-          description: Newly fetched snapshots (0-2 items depending on scrape success)
+          description: Newly fetched snapshots (0-2 items)
           content:
             application/json:
               schema:
@@ -180,160 +256,251 @@ paths:
                   $ref: "#/components/schemas/PriceSnapshot"
         "404":
           $ref: "#/components/responses/NotFound"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
 
 components:
+  securitySchemes:
+    oauthBearer:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: |
+        Bearer token obtained from the OAuth 2.0 Client Credentials flow.
+
+        **Token endpoint:** `POST /{env}/{app}/oauth/token`
+        (outside the `/flights` base path — relative to the app root).
+
+        **Required request:**
+        ```
+        POST /oauth/token
+        Authorization: Basic base64(client_id:client_secret)
+        Content-Type: application/x-www-form-urlencoded
+
+        grant_type=client_credentials&client_id={id}&client_secret={secret}
+        ```
+
+        The C3 platform requires BOTH the Basic header AND the form body.
+
+    oauthToken:
+      type: oauth2
+      description: |
+        OAuth 2.0 Client Credentials grant for machine-to-machine access.
+        The OAuth application must be registered in the API app's console
+        with the `FlightApi.Client` UserGroup role.
+      flows:
+        clientCredentials:
+          tokenUrl: "/{env}/flightpricetrackerapi/oauth/token"
+          scopes: {}
+
   parameters:
     SearchId:
       name: id
       in: path
       required: true
-      description: FlightSearch entity ID
+      description: FlightSearch entity ID (e.g. `seed_search_lax_nrt`)
       schema:
         type: string
+      example: seed_search_lax_nrt
 
   responses:
     BadRequest:
-      description: Invalid request
+      description: Invalid request — missing required fields or invalid values
       content:
         application/json:
           schema:
             $ref: "#/components/schemas/ApiError"
+          example:
+            error: "fromAirport, toAirport, and outboundDate are required"
+            status: 400
+
     NotFound:
       description: Resource not found
       content:
         application/json:
           schema:
             $ref: "#/components/schemas/ApiError"
+          example:
+            error: "Search not found"
+            status: 404
+
+    Unauthorized:
+      description: |
+        Missing, expired, or invalid Bearer token.
+        The C3 platform may return `302` (redirect to IdP) instead of `401`
+        when no Authorization header is present. Clients should treat both
+        302 and 401 as "re-acquire token and retry".
 
   schemas:
     FlightSearch:
       type: object
       required: [id, fromAirport, toAirport, tripType, outboundDate, searchStatus]
+      description: |
+        A tracked flight search with its criteria and status.
+
+        **C3 serialization note:** Single-entity responses (getById, create,
+        update) include a `"type": "FlightSearch"` field. Collection responses
+        (listSearches) omit it. Consumers should ignore `type` during parsing.
       properties:
+        type:
+          type: string
+          description: C3 type discriminator. Present on single-entity responses, absent on collections.
+          readOnly: true
+          example: FlightSearch
         id:
           type: string
-        name:
-          type: string
-          description: C3 auto-generated name field
+          description: Unique entity identifier
+          example: seed_search_sfo_lhr
+        version:
+          type: integer
+          description: C3 entity version for optimistic locking
+          readOnly: true
+          example: 1
+        meta:
+          $ref: "#/components/schemas/Meta"
         fromAirport:
           type: string
-          description: IATA airport code (e.g. "LAX")
+          description: Departure airport IATA code (uppercased server-side)
+          example: SFO
         toAirport:
           type: string
-          description: IATA airport code (e.g. "NRT")
+          description: Destination airport IATA code (uppercased server-side)
+          example: LHR
         tripType:
           type: string
           enum: [one-way, round-trip]
+          example: round-trip
         outboundDate:
           type: string
           format: date-time
+          description: Outbound flight date (ISO 8601)
+          example: "2026-04-19T00:00:00Z"
         returnDate:
           type: string
           format: date-time
-          nullable: true
+          description: Return date for round-trip. Absent (not null) when not applicable.
+          example: "2026-04-29T00:00:00Z"
         maxStops:
           type: integer
-          nullable: true
+          description: Maximum stops allowed. Absent when unset.
         passengersAdults:
           type: integer
           default: 1
+          example: 2
         language:
           type: string
+          example: en-US
         currency:
           type: string
+          example: USD
         searchStatus:
           type: string
           enum: [active, disabled]
+          example: active
         isTestData:
           type: boolean
-        version:
-          type: integer
-          description: C3 entity version (optimistic locking)
-        meta:
-          $ref: "#/components/schemas/Meta"
+          example: false
 
     PriceSnapshot:
       type: object
       required: [id, flightSearch, seatClass, price, fetchedAt]
+      description: |
+        A single price data point for a flight search.
+        Prices are in **cents** (integer) — divide by 100 for display.
       properties:
+        type:
+          type: string
+          readOnly: true
+          example: PriceSnapshot
         id:
           type: string
-        name:
-          type: string
-          description: C3 auto-generated name field
+          example: seed_snap_lax_nrt_economy_83
+        version:
+          type: integer
+          readOnly: true
+        meta:
+          $ref: "#/components/schemas/Meta"
         flightSearch:
-          description: Parent search (full entity or ID reference)
-          oneOf:
-            - $ref: "#/components/schemas/FlightSearch"
-            - type: object
-              properties:
-                id:
-                  type: string
+          $ref: "#/components/schemas/EntityRef"
         seatClass:
           type: string
           enum: [economy, business]
+          example: economy
         price:
           type: integer
-          description: Price in cents (e.g. 85000 = $850)
+          description: "Price in cents (e.g. 92148 = $921.48)"
+          example: 92148
         airlineCodes:
           type: array
           items:
             type: string
           description: IATA airline codes
+          example: ["NH", "AA"]
         airlineNames:
           type: array
           items:
             type: string
+          example: ["All Nippon Airways", "American Airlines"]
         flightType:
           type: string
-          description: '"direct", "1 stop", etc.'
+          description: "Route type: 'direct', '1 stop', '2 stops', etc."
+          example: "1 stop"
         durationMinutes:
           type: integer
-          nullable: true
+          description: Total flight duration in minutes. Absent when unknown.
+          example: 730
         fetchedAt:
           type: string
           format: date-time
-        version:
-          type: integer
-        meta:
-          $ref: "#/components/schemas/Meta"
+          description: When this price was scraped
+          example: "2026-03-06T17:55:19Z"
 
     AlertResult:
       type: object
       required: [searchId, status, message]
+      description: |
+        Price trend analysis based on the last 14 days of economy snapshots.
       properties:
         searchId:
           type: string
+          example: seed_search_lax_nrt
         status:
           type: string
           enum: [red, green, grey]
+          description: |
+            - `red` — 5+ of 7 current-week daily prices exceed previous week
+            - `green` — current week average is 20%+ lower than previous week
+            - `grey` — insufficient data or no significant change
+          example: green
         message:
           type: string
           description: Human-readable alert description
+          example: "Prices dropped 22% vs. last week"
         currentWeekAvg:
           type: number
-          nullable: true
-          description: Average daily min price this week (cents)
+          description: Average daily minimum price this week (cents)
+          example: 78200
         previousWeekAvg:
           type: number
-          nullable: true
-          description: Average daily min price last week (cents)
+          description: Average daily minimum price last week (cents)
+          example: 100300
         percentChange:
           type: number
-          nullable: true
-          description: Week-over-week percent change
+          description: Week-over-week percent change (negative = cheaper)
+          example: -22.03
         daysRising:
           type: integer
-          nullable: true
-          description: Days where current week price > previous week
+          description: Count of days where current week price > previous week
+          example: 1
         cheapestAirline:
           type: string
-          nullable: true
-          description: Name of cheapest airline from latest snapshot
+          description: Airline name from the cheapest option in the latest snapshot
+          example: All Nippon Airways
         googleFlightsUrl:
           type: string
-          nullable: true
-          description: Protobuf-encoded Google Flights search URL
+          format: uri
+          description: Pre-built Google Flights URL for this search
+          example: "https://www.google.com/travel/flights/search?tfs=..."
 
     SearchCreateInput:
       type: object
@@ -341,10 +508,12 @@ components:
       properties:
         fromAirport:
           type: string
-          description: IATA airport code
+          description: IATA airport code (uppercased server-side)
+          example: SFO
         toAirport:
           type: string
-          description: IATA airport code
+          description: IATA airport code (uppercased server-side)
+          example: LHR
         tripType:
           type: string
           enum: [one-way, round-trip]
@@ -352,13 +521,15 @@ components:
         outboundDate:
           type: string
           format: date
+          description: ISO date (e.g. "2026-04-19")
+          example: "2026-04-19"
         returnDate:
           type: string
           format: date
-          nullable: true
+          description: Required when tripType is "round-trip"
+          example: "2026-04-29"
         maxStops:
           type: integer
-          nullable: true
         passengersAdults:
           type: integer
           default: 1
@@ -366,20 +537,63 @@ components:
           type: string
           default: USD
 
+    EntityRef:
+      type: object
+      description: |
+        C3 foreign key reference. Always serialized as an object with only `id`.
+        Never expanded to the full entity in this API's responses.
+      required: [id]
+      properties:
+        id:
+          type: string
+      example:
+        id: seed_search_lax_nrt
+
     Meta:
       type: object
+      readOnly: true
+      description: |
+        C3 entity metadata. Consumers should treat this as opaque.
+        Only `created` and `updated` are reliably useful.
       properties:
+        appCode:
+          type: integer
+          format: int64
+          description: Internal C3 application identifier
+        env:
+          type: string
+          description: C3 environment name
+        app:
+          type: string
+          description: C3 application name
         created:
           type: string
           format: date-time
+        createdBy:
+          type: string
         updated:
           type: string
           format: date-time
+        updatedBy:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+        fetchInclude:
+          type: string
+        fetchType:
+          type: string
 
     ApiError:
       type: object
+      description: Error response body returned by the API handler
       properties:
         error:
           type: string
+          description: Human-readable error message
         status:
           type: integer
+          description: HTTP status code
+      example:
+        error: "fromAirport, toAirport, and outboundDate are required"
+        status: 400

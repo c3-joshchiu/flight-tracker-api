@@ -111,35 +111,36 @@ scripts/
 ### Provision and verify
 
 1. Provision the `flightPriceTrackerApi` package to your C3 environment.
+   `App#afterStart` automatically runs `UserGroup.upsertSeededGroups()` to
+   seed the `FlightApi.Client` role.
 
-2. Verify entity methods via the C3 console:
+2. Verify seed data in the C3 console:
 
 ```javascript
-FlightSearch.getAll()
-FlightSearch.createSearch({
-  fromAirport: "LAX",
-  toAirport: "NRT",
-  outboundDate: "2026-06-01"
-})
+FlightSearch.getAll()   // should return 3 seeded searches
 ```
 
-3. Verify REST endpoints via curl:
+3. **(One-time)** Register an OAuth client for API consumers — see
+   [`../secret-config.md`](../secret-config.md) for the full steps.
+
+4. Verify REST endpoints via curl:
 
 ```bash
-BASE="https://<cluster>/<env>/flightpricetrackerapi/flights"
-TOKEN="<your-c3auth-token>"
+CLIENT_ID="<your_client_id>"
+CLIENT_SECRET="<your_client_secret>"
+BASE="https://<cluster>/<env>/flightpricetrackerapi"
 
-# List searches
-curl -s -b "c3auth=$TOKEN" "$BASE/searches" | jq '.[0]'
+TOKEN=$(curl -sf -X POST "${BASE}/oauth/token" \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -u "${CLIENT_ID}:${CLIENT_SECRET}" \
+  -d "grant_type=client_credentials&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}" \
+  | python3 -c "import sys,json; print(json.load(sys.stdin)['access_token'])")
 
-# Create a search
-curl -s -b "c3auth=$TOKEN" -X POST "$BASE/searches" \
-  -H "Content-Type: application/json" \
-  -d '{"fromAirport":"SFO","toAirport":"JFK","outboundDate":"2026-07-01"}' | jq '.id'
-
-# Get alert
-curl -s -b "c3auth=$TOKEN" "$BASE/searches/<id>/alert" | jq '.status'
+curl -s -H "Authorization: Bearer $TOKEN" "${BASE}/flights/searches" | python3 -m json.tool
 ```
+
+See [`integration-guide.md`](integration-guide.md) for the full auth
+handshake and C3-specific quirks.
 
 ### Validate the OpenAPI spec
 
@@ -167,6 +168,7 @@ detected by `oasdiff` in CI before they reach consumers.
 
 ## Related
 
-- [flight-tracker-ui](../flightTrackerUi) — React frontend
+- [flight-tracker-ui](../flightTrackerUi) — React frontend (BFF proxy)
 - [OpenAPI spec](openapi/flights-api.yaml) — full API contract
-- [C3 API Integration Patterns](../c3-api-integration-patterns.md) — architecture reference
+- [Integration guide](integration-guide.md) — auth flow, C3 quirks, error recovery
+- [OAuth setup](../secret-config.md) — one-time credential provisioning
