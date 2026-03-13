@@ -1,0 +1,3 @@
+function afterStart() {
+  UserGroup.upsertSeededGroups();
+}
