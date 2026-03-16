@@ -1,0 +1,7 @@
+/**
+ * Scheduler that triggers periodic price fetches for all active flight searches.
+ * Called by the "scheduledPriceFetch" CronJob (runs 3x daily at 00:00, 08:00, 16:00 UTC).
+ */
+type FlightSearchScheduler {
+  runScheduledSnapshots: function() js-server
+}

@@ -1,0 +1,14 @@
+{
+  "id": "keepAlive",
+  "name": "Keep Alive",
+  "description": "Hourly no-op to prevent environment hibernation due to inactivity",
+  "action": {
+    "typeName": "KeepAlive",
+    "actionName": "ping"
+  },
+  "scheduleDef": {
+    "cronExpression": "0 0 0/1 * * ?"
+  },
+  "concurrent": false,
+  "inactive": false
+}

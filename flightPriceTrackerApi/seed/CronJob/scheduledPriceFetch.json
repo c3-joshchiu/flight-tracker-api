@@ -1,0 +1,14 @@
+{
+  "id": "scheduledPriceFetch",
+  "name": "Scheduled Price Fetch",
+  "description": "Fetches live flight prices for all active searches 3x daily (00:00, 08:00, 16:00 UTC)",
+  "action": {
+    "typeName": "FlightSearchScheduler",
+    "actionName": "runScheduledSnapshots"
+  },
+  "scheduleDef": {
+    "cronExpression": "0 0 0,8,16 * * ?"
+  },
+  "concurrent": false,
+  "inactive": false
+}
