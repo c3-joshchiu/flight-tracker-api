@@ -16,6 +16,9 @@ week-over-week trends, and exposes a RESTful API consumed by the
 ├──────────────────────────────────────────────────┤
 │  FlightSearch / PriceSnapshot  (entity layer)    │
 │  CRUD (js-server) · alerts (py) · scraping (py)  │
+├──────────────────────────────────────────────────┤
+│  CronJobs (C3 scheduler)                         │
+│  scheduledPriceFetch (3×/day) · keepAlive (1×/hr)│
 └──────────────────────────────────────────────────┘
 ```
 
@@ -76,6 +79,30 @@ A single price data point for a search, captured at a point in time.
 
 **Methods:** `getHistory` (js-server); `fetchNow` (py — scrapes Google Flights)
 
+### FlightSearchScheduler
+
+Invoked by the `scheduledPriceFetch` CronJob. Iterates all active searches and
+calls `PriceSnapshot.fetchNow` for each, catching per-search errors so one
+failure doesn't block the rest.
+
+**Methods:** `runScheduledSnapshots` (js-server)
+
+### KeepAlive
+
+No-op type invoked hourly by the `keepAlive` CronJob to prevent environment
+hibernation.
+
+**Methods:** `ping` (js-server)
+
+## Cron Jobs
+
+Seeded via `seed/CronJob/`. Active on first provision.
+
+| Job | Schedule (UTC) | Action | Purpose |
+|-----|---------------|--------|---------|
+| `scheduledPriceFetch` | 00:00, 08:00, 16:00 | `FlightSearchScheduler.runScheduledSnapshots` | Automated price scraping for all active searches |
+| `keepAlive` | Every hour | `KeepAlive.ping` | Prevent environment hibernation |
+
 ## Project Structure
 
 ```
@@ -88,17 +115,26 @@ flightPriceTrackerApi/
 │   ├── PriceSnapshot.c3typ
 │   ├── PriceSnapshot.js          # getHistory
 │   ├── PriceSnapshot.py          # fetchNow (Google Flights scraper)
+│   ├── FlightSearchScheduler.c3typ
+│   ├── FlightSearchScheduler.js  # runScheduledSnapshots (cron-driven price fetch)
+│   ├── KeepAlive.c3typ
+│   ├── KeepAlive.js              # ping (no-op to prevent hibernation)
 │   ├── FlightSearchApi.c3typ     # @restful(endpoint='flights')
 │   └── FlightSearchApi.js        # Route table, handlers, response helpers
-└── seed/
-    ├── FlightSearch/FlightSearch.json
-    └── PriceSnapshot/PriceSnapshot.json
+├── seed/
+│   ├── CronJob/
+│   │   ├── scheduledPriceFetch.json
+│   │   └── keepAlive.json
+│   ├── FlightSearch/FlightSearch.json
+│   └── PriceSnapshot/PriceSnapshot.json
 
 openapi/
 └── flights-api.yaml              # OpenAPI 3.1 — source of truth for the REST surface
 
 scripts/
 └── validate-openapi.sh           # Spectral lint + oasdiff breaking change check
+
+refresh_seed.py                   # Roll PriceSnapshot seed dates forward (run before re-provision)
 ```
 
 ## Development
@@ -110,20 +146,35 @@ scripts/
 
 ### Provision and verify
 
-1. Provision the `flightPriceTrackerApi` package to your C3 environment.
-   `App#afterStart` automatically runs `UserGroup.upsertSeededGroups()` to
-   seed the `FlightApi.Client` role.
+1. **(Optional)** Refresh seed snapshot dates so alerts compute correctly:
 
-2. Verify seed data in the C3 console:
+```bash
+python refresh_seed.py
+```
+
+2. Provision the `flightPriceTrackerApi` package to your C3 environment.
+   `App#afterStart` automatically runs `UserGroup.upsertSeededGroups()` to
+   seed the `FlightApi.Client` role. The two `CronJob` records
+   (`scheduledPriceFetch`, `keepAlive`) are provisioned from seed data
+   automatically.
+
+3. Verify seed data in the C3 console:
 
 ```javascript
 FlightSearch.getAll()   // should return 3 seeded searches
 ```
 
-3. **(One-time)** Register an OAuth client for API consumers — see
+4. Verify cron jobs are active:
+
+```javascript
+CronJob.get('scheduledPriceFetch')   // 3x daily price fetch
+CronJob.get('keepAlive')             // hourly keep-alive
+```
+
+5. **(One-time)** Register an OAuth client for API consumers — see
    [`../secret-config.md`](../secret-config.md) for the full steps.
 
-4. Verify REST endpoints via curl:
+6. Verify REST endpoints via curl:
 
 ```bash
 CLIENT_ID="<your_client_id>"

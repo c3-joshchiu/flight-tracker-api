@@ -71,6 +71,23 @@ Records a price observation for a given FlightSearch at a point in time.
 | `durationMinutes` | `int` | |
 | `fetchedAt` | `!datetime` | When the price was scraped |
 
+### FlightSearchScheduler
+
+Scheduler that triggers periodic price fetches for all active flight searches.
+
+| C3 Field | Type | Notes |
+|----------|------|-------|
+| `runScheduledSnapshots` | `function` | js-server, called by `scheduledPriceFetch` CronJob |
+
+### KeepAlive
+
+Lightweight no-op type whose sole purpose is to prevent environment
+hibernation by being invoked on an hourly cron schedule.
+
+| C3 Field | Type | Notes |
+|----------|------|-------|
+| `ping` | `function` | js-server, called by `keepAlive` CronJob |
+
 ## Entity Methods
 
 | Type | Method | Runtime | Purpose |
@@ -84,6 +101,8 @@ Records a price observation for a given FlightSearch at a point in time.
 | `FlightSearch` | `computeAlert(searchId)` | py | 14-day trend analysis |
 | `PriceSnapshot` | `getHistory(searchId, seatClass)` | js-server | Price history, optionally filtered |
 | `PriceSnapshot` | `fetchNow(searchId)` | py | Scrape Google Flights live |
+| `FlightSearchScheduler` | `runScheduledSnapshots()` | js-server | Fetch prices for all active searches |
+| `KeepAlive` | `ping()` | js-server | No-op to prevent environment hibernation |
 
 ## REST API → Entity Method Mapping
 
@@ -187,7 +206,8 @@ the scrape fails.
 
 ## Seed Data
 
-3 searches × 14 days × 3 fetches/day × 2 seat classes = **252 snapshots**.
+3 searches × 14 days × 3 fetches/day × 2 seat classes = **252 baseline snapshots**
+(more after running `refresh_seed.py` — see below).
 
 | Route | Price Pattern | Expected Alert |
 |-------|--------------|----------------|
@@ -197,7 +217,28 @@ the scrape fails.
 
 Files:
 - `seed/FlightSearch/FlightSearch.json` — 3 search records
-- `seed/PriceSnapshot/PriceSnapshot.json` — 252 price snapshot records
+- `seed/PriceSnapshot/PriceSnapshot.json` — price snapshot records
+- `seed/CronJob/scheduledPriceFetch.json` — scheduled price fetch cron job
+- `seed/CronJob/keepAlive.json` — keep-alive cron job
+
+### Refreshing Seed Data (`refresh_seed.py`)
+
+The alert algorithm needs snapshots within the last 14 days. Because seed data
+is static, the dates become stale over time. The `refresh_seed.py` script
+(located at the repo root) rolls the seed forward:
+
+```bash
+python refresh_seed.py
+```
+
+**How it works:** for each missing day between the latest `fetchedAt` in the
+seed file and yesterday, the script copies all snapshots from exactly 7 days
+prior, shifting their dates forward. This preserves the original week-over-week
+price patterns that produce the expected red/green/grey alerts.
+
+The script is idempotent — if the data already covers yesterday it prints a
+message and exits. Run it before any re-provision where alert correctness
+matters.
 
 ## Startup Hook
 
@@ -213,6 +254,18 @@ function afterStart() {
 This seeds the `FlightApi.Client` UserGroup/Role from
 `metadata/Role/FlightApi.Client.json`. The call is idempotent (upsert
 semantics). No manual console command required after initial provision.
+
+## Cron Jobs
+
+Two seeded `CronJob` records automate recurring work. Both are provisioned via
+seed data (`seed/CronJob/`) and become active on the first provision.
+
+| CronJob ID | Schedule | Type.Method | Purpose |
+|------------|----------|-------------|---------|
+| `scheduledPriceFetch` | `0 0 0,8,16 * * ?` (3× daily: 00:00, 08:00, 16:00 UTC) | `FlightSearchScheduler.runScheduledSnapshots` | Iterates all active `FlightSearch` records and calls `PriceSnapshot.fetchNow` for each. Errors on individual searches are caught so one failure doesn't block the rest. |
+| `keepAlive` | `0 0 0/1 * * ?` (every hour) | `KeepAlive.ping` | No-op execution that registers as environment activity, preventing the C3 environment from hibernating due to inactivity. |
+
+Both jobs have `concurrent: false` and `inactive: false` by default.
 
 ## Authentication & OAuth
 
@@ -246,7 +299,7 @@ generate typed clients. Breaking changes are caught by `oasdiff` before merge.
 
 - **HTTP client**: Uses `urllib.request` with static User-Agent (lower robustness than Chrome impersonation libraries)
 - **HTML parser**: Uses `re.search` regex (less robust than C-based parsers like selectolax)
-- **No scheduled fetching**: Prices must be fetched manually via the `/fetch` endpoint (C3-native scheduling available as future work)
 - **No logging**: Per C3 guidelines (no `console.log` / `print`)
 - **Protobuf helpers duplicated**: Same encoding functions exist in both `FlightSearch.py` and `PriceSnapshot.py` (C3 Python implementations are scoped 1:1 to their type)
 - **Price unit**: Scraper returns whole dollars, stored as cents (× 100)
+- **Seed data staleness**: Snapshot dates drift behind the current date; run `refresh_seed.py` before re-provisioning to keep alert demos accurate
