@@ -18,7 +18,7 @@ week-over-week trends, and exposes a RESTful API consumed by the
 │  CRUD (js-server) · alerts (py) · scraping (py)  │
 ├──────────────────────────────────────────────────┤
 │  CronJobs (C3 scheduler)                         │
-│  scheduledPriceFetch (3×/day) · keepAlive (1×/hr)│
+│  scheduledPriceFetch (3×/day)                     │
 └──────────────────────────────────────────────────┘
 ```
 
@@ -87,13 +87,6 @@ failure doesn't block the rest.
 
 **Methods:** `runScheduledSnapshots` (js-server)
 
-### KeepAlive
-
-No-op type invoked hourly by the `keepAlive` CronJob to prevent environment
-hibernation.
-
-**Methods:** `ping` (js-server)
-
 ## Cron Jobs
 
 Seeded via `seed/CronJob/`. Active on first provision.
@@ -101,7 +94,6 @@ Seeded via `seed/CronJob/`. Active on first provision.
 | Job | Schedule (UTC) | Action | Purpose |
 |-----|---------------|--------|---------|
 | `scheduledPriceFetch` | 00:00, 08:00, 16:00 | `FlightSearchScheduler.runScheduledSnapshots` | Automated price scraping for all active searches |
-| `keepAlive` | Every hour | `KeepAlive.ping` | Prevent environment hibernation |
 
 ## Project Structure
 
@@ -117,14 +109,11 @@ flightPriceTrackerApi/
 │   ├── PriceSnapshot.py          # fetchNow (Google Flights scraper)
 │   ├── FlightSearchScheduler.c3typ
 │   ├── FlightSearchScheduler.js  # runScheduledSnapshots (cron-driven price fetch)
-│   ├── KeepAlive.c3typ
-│   ├── KeepAlive.js              # ping (no-op to prevent hibernation)
 │   ├── FlightSearchApi.c3typ     # @restful(endpoint='flights')
 │   └── FlightSearchApi.js        # Route table, handlers, response helpers
 ├── seed/
 │   ├── CronJob/
-│   │   ├── scheduledPriceFetch.json
-│   │   └── keepAlive.json
+│   │   └── scheduledPriceFetch.json
 │   ├── FlightSearch/FlightSearch.json
 │   └── PriceSnapshot/PriceSnapshot.json
 
@@ -154,9 +143,8 @@ python refresh_seed.py
 
 2. Provision the `flightPriceTrackerApi` package to your C3 environment.
    `App#afterStart` automatically runs `UserGroup.upsertSeededGroups()` to
-   seed the `FlightApi.Client` role. The two `CronJob` records
-   (`scheduledPriceFetch`, `keepAlive`) are provisioned from seed data
-   automatically.
+   seed the `FlightApi.Client` role. The `scheduledPriceFetch` `CronJob`
+   is provisioned from seed data automatically.
 
 3. Verify seed data in the C3 console:
 
@@ -164,11 +152,10 @@ python refresh_seed.py
 FlightSearch.getAll()   // should return 3 seeded searches
 ```
 
-4. Verify cron jobs are active:
+4. Verify the cron job is active:
 
 ```javascript
 CronJob.get('scheduledPriceFetch')   // 3x daily price fetch
-CronJob.get('keepAlive')             // hourly keep-alive
 ```
 
 5. **(One-time)** Register an OAuth client for API consumers — see

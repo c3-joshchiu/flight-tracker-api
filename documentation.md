@@ -79,15 +79,6 @@ Scheduler that triggers periodic price fetches for all active flight searches.
 |----------|------|-------|
 | `runScheduledSnapshots` | `function` | js-server, called by `scheduledPriceFetch` CronJob |
 
-### KeepAlive
-
-Lightweight no-op type whose sole purpose is to prevent environment
-hibernation by being invoked on an hourly cron schedule.
-
-| C3 Field | Type | Notes |
-|----------|------|-------|
-| `ping` | `function` | js-server, called by `keepAlive` CronJob |
-
 ## Entity Methods
 
 | Type | Method | Runtime | Purpose |
@@ -102,7 +93,6 @@ hibernation by being invoked on an hourly cron schedule.
 | `PriceSnapshot` | `getHistory(searchId, seatClass)` | js-server | Price history, optionally filtered |
 | `PriceSnapshot` | `fetchNow(searchId)` | py | Scrape Google Flights live |
 | `FlightSearchScheduler` | `runScheduledSnapshots()` | js-server | Fetch prices for all active searches |
-| `KeepAlive` | `ping()` | js-server | No-op to prevent environment hibernation |
 
 ## REST API → Entity Method Mapping
 
@@ -219,7 +209,6 @@ Files:
 - `seed/FlightSearch/FlightSearch.json` — 3 search records
 - `seed/PriceSnapshot/PriceSnapshot.json` — price snapshot records
 - `seed/CronJob/scheduledPriceFetch.json` — scheduled price fetch cron job
-- `seed/CronJob/keepAlive.json` — keep-alive cron job
 
 ### Refreshing Seed Data (`refresh_seed.py`)
 
@@ -257,15 +246,12 @@ semantics). No manual console command required after initial provision.
 
 ## Cron Jobs
 
-Two seeded `CronJob` records automate recurring work. Both are provisioned via
-seed data (`seed/CronJob/`) and become active on the first provision.
+A seeded `CronJob` record automates price fetching. It is provisioned via
+seed data (`seed/CronJob/`) and becomes active on the first provision.
 
 | CronJob ID | Schedule | Type.Method | Purpose |
 |------------|----------|-------------|---------|
 | `scheduledPriceFetch` | `0 0 0,8,16 * * ?` (3× daily: 00:00, 08:00, 16:00 UTC) | `FlightSearchScheduler.runScheduledSnapshots` | Iterates all active `FlightSearch` records and calls `PriceSnapshot.fetchNow` for each. Errors on individual searches are caught so one failure doesn't block the rest. |
-| `keepAlive` | `0 0 0/1 * * ?` (every hour) | `KeepAlive.ping` | No-op execution that registers as environment activity, preventing the C3 environment from hibernating due to inactivity. |
-
-Both jobs have `concurrent: false` and `inactive: false` by default.
 
 ## Authentication & OAuth
 
