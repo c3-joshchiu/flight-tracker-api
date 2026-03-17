@@ -259,6 +259,113 @@ paths:
         "401":
           $ref: "#/components/responses/Unauthorized"
 
+  /export:
+    get:
+      operationId: exportData
+      summary: Export all non-seed data
+      description: |
+        Returns all user-created searches and their price snapshots.
+        Seed/test data (isTestData=true) is excluded.
+      parameters:
+        - name: format
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [csv, json]
+            default: json
+      responses:
+        "200":
+          description: Export data in the requested format
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExportData"
+            text/csv:
+              schema:
+                type: string
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+
+  /export/searches:
+    get:
+      operationId: exportSearches
+      summary: Export searches only
+      parameters:
+        - name: format
+          in: query
+          schema:
+            type: string
+            enum: [csv, json]
+            default: json
+      responses:
+        "200":
+          description: Searches export
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExportData"
+            text/csv:
+              schema:
+                type: string
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+
+  /export/snapshots:
+    get:
+      operationId: exportSnapshots
+      summary: Export snapshots
+      parameters:
+        - name: format
+          in: query
+          schema:
+            type: string
+            enum: [csv, json]
+            default: json
+        - name: searchId
+          in: query
+          description: Filter to a single search. Omit for all non-seed searches.
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Snapshots export
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExportData"
+            text/csv:
+              schema:
+                type: string
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+
+  /import:
+    put:
+      operationId: importData
+      summary: Import data (idempotent upsert)
+      description: |
+        Imports searches and/or snapshots. Uses natural keys for
+        deduplication. PUT semantics — uploading the same data twice
+        is a no-op (with conflictStrategy=skip).
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ImportPayload"
+      responses:
+        "200":
+          description: Import report
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ImportReport"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+
 components:
   securitySchemes:
     oauthBearer:
@@ -597,3 +704,147 @@ components:
       example:
         error: "fromAirport, toAirport, and outboundDate are required"
         status: 400
+
+    ExportData:
+      type: object
+      description: Envelope for exported data containing searches and snapshots.
+      properties:
+        exportedAt:
+          type: string
+          format: date-time
+          description: ISO 8601 timestamp when the export was generated
+        version:
+          type: string
+          description: Export format version for backward compatibility
+          example: "1.0"
+        searches:
+          type: array
+          items:
+            $ref: "#/components/schemas/ExportedSearch"
+        snapshots:
+          type: array
+          items:
+            $ref: "#/components/schemas/ExportedSnapshot"
+
+    ExportedSearch:
+      type: object
+      required: [id, fromAirport, toAirport, tripType, outboundDate]
+      properties:
+        id:
+          type: string
+        fromAirport:
+          type: string
+        toAirport:
+          type: string
+        tripType:
+          type: string
+          enum: [one-way, round-trip]
+        outboundDate:
+          type: string
+        returnDate:
+          type: string
+          nullable: true
+        maxStops:
+          type: integer
+          nullable: true
+        passengersAdults:
+          type: integer
+          default: 1
+        currency:
+          type: string
+          default: USD
+        searchStatus:
+          type: string
+          enum: [active, disabled]
+        snapshotCount:
+          type: integer
+          description: Number of associated snapshots (convenience field)
+
+    ExportedSnapshot:
+      type: object
+      required: [id, flightSearchId, seatClass, price, fetchedAt]
+      properties:
+        id:
+          type: string
+        flightSearchId:
+          type: string
+          description: ID of the parent search (flattened from C3 FK reference)
+        seatClass:
+          type: string
+          enum: [economy, business]
+        price:
+          type: integer
+          description: Price in cents
+        airlineCodes:
+          type: array
+          items:
+            type: string
+        airlineNames:
+          type: array
+          items:
+            type: string
+        flightType:
+          type: string
+          nullable: true
+        durationMinutes:
+          type: integer
+          nullable: true
+        fetchedAt:
+          type: string
+          format: date-time
+
+    ImportPayload:
+      type: object
+      description: Request body for PUT /import
+      properties:
+        searches:
+          type: array
+          items:
+            $ref: "#/components/schemas/ExportedSearch"
+        snapshots:
+          type: array
+          items:
+            $ref: "#/components/schemas/ExportedSnapshot"
+        conflictStrategy:
+          type: string
+          enum: [skip, overwrite, error]
+          default: skip
+          description: |
+            How to handle records that already exist (matched by natural key):
+            - skip: keep existing, skip import record
+            - overwrite: replace existing with import data
+            - error: return error listing all conflicts
+
+    ImportReport:
+      type: object
+      description: Result of an import operation
+      properties:
+        status:
+          type: string
+          example: completed
+        searches:
+          $ref: "#/components/schemas/ImportEntityReport"
+        snapshots:
+          $ref: "#/components/schemas/ImportEntityReport"
+
+    ImportEntityReport:
+      type: object
+      properties:
+        created:
+          type: integer
+        skipped:
+          type: integer
+        overwritten:
+          type: integer
+        errors:
+          type: array
+          items:
+            $ref: "#/components/schemas/ImportError"
+
+    ImportError:
+      type: object
+      properties:
+        id:
+          type: string
+        error:
+          type: string

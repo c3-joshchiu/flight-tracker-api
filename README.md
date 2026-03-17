@@ -40,6 +40,10 @@ All paths are relative to `/<env>/<app>/flights`.
 | GET | `/searches/{id}/prices` | `getPrices` | Price history (optional `?seatClass=economy\|business`) |
 | GET | `/searches/{id}/latest-price` | `getLatestPrice` | Most recent economy snapshot |
 | POST | `/searches/{id}/fetch` | `triggerFetch` | Scrape Google Flights for live prices |
+| GET | `/export` | `exportData` | Export all non-seed data (`?format=csv\|json`) |
+| GET | `/export/searches` | `exportSearches` | Export searches only |
+| GET | `/export/snapshots` | `exportSnapshots` | Export snapshots (`?searchId=X`) |
+| PUT | `/import` | `importData` | Idempotent bulk import with natural key dedup |
 
 ## Entity Types
 
@@ -86,6 +90,26 @@ calls `PriceSnapshot.fetchNow` for each, catching per-search errors so one
 failure doesn't block the rest.
 
 **Methods:** `runScheduledSnapshots` (js-server)
+
+### DataExport
+
+Static utility type for exporting and importing flight tracker data.
+Handles serialization to CSV/JSON and idempotent import with
+natural key deduplication.
+
+**Methods:** `exportAll`, `exportSearches`, `exportSnapshots`, `toCsv`,
+`importAll` (all js-server)
+
+**Export formats:**
+
+| Format | Content-Type | Generated where |
+|--------|-------------|-----------------|
+| JSON | `application/json` | Backend |
+| CSV | `text/csv` | Backend (two-section with `# SEARCHES` / `# SNAPSHOTS`) |
+| XLSX | N/A | Frontend (SheetJS from JSON data) |
+
+**Import:** Uses natural keys (not entity IDs) for deduplication.
+Conflict strategies: `skip` (default), `overwrite`, `error`.
 
 ## Cron Jobs
 

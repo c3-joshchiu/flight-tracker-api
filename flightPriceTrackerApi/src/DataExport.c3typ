@@ -1,0 +1,40 @@
+/**
+ * Static utility type for exporting and importing flight tracker data.
+ * Handles serialization to CSV/JSON and idempotent import with natural key deduplication.
+ */
+type DataExport {
+
+  /**
+   * Export all non-seed searches and their snapshots as JSON.
+   * @return JSON envelope with exportedAt, version, searches, and snapshots arrays.
+   */
+  exportAll: function(): json js-server
+
+  /**
+   * Export only non-seed searches (no snapshots).
+   * @return JSON envelope with searches array.
+   */
+  exportSearches: function(): json js-server
+
+  /**
+   * Export snapshots, optionally filtered to a single search.
+   * @param searchId Optional search ID to filter by. Empty string for all non-seed snapshots.
+   * @return JSON envelope with snapshots array.
+   */
+  exportSnapshots: function(searchId: string): json js-server
+
+  /**
+   * Convert export data to two-section CSV format.
+   * @param data JSON export envelope from exportAll/exportSearches/exportSnapshots.
+   * @return CSV string with # SEARCHES and # SNAPSHOTS sections.
+   */
+  toCsv: function(data: json): string js-server
+
+  /**
+   * Import searches and/or snapshots with idempotent upsert semantics.
+   * Uses natural keys for deduplication, not C3 entity IDs.
+   * @param data JSON with searches, snapshots, and conflictStrategy fields.
+   * @return Import report with created/skipped/overwritten/errors counts.
+   */
+  importAll: function(data: json): json js-server
+}
