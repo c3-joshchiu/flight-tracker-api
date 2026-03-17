@@ -228,6 +228,17 @@ openapi/flights-api.yaml   (this repo — source of truth)
 Consumer repos pull the spec and generate typed clients. Breaking changes are
 detected by `oasdiff` in CI before they reach consumers.
 
+**After changing the spec**, sync the UI repo:
+
+```bash
+cd ../flightTrackerUi
+bash flightPriceTrackerUi/react/scripts/generate-client.sh
+```
+
+The script mirrors the spec, regenerates TypeScript types, and runs `tsc` to
+surface any breaking changes. See the
+[UI README](../flightTrackerUi/README.md#updating-api-types) for details.
+
 ## Related
 
 - [flight-tracker-ui](../flightTrackerUi) — React frontend (BFF proxy)
