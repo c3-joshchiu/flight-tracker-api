@@ -24,8 +24,14 @@ type DataExport {
   exportSnapshots: function(searchId: string): json js-server
 
   /**
-   * Convert export data to two-section CSV format.
-   * @param data JSON export envelope from exportAll/exportSearches/exportSnapshots.
+   * Convert export data to two-section CSV format (RFC 4180).
+   * @param data Export envelope (json).
+   *   searches - object[]. Array of serialized search objects. Optional.
+   *     Fields: id, fromAirport, toAirport, tripType, outboundDate, returnDate,
+   *     maxStops, passengersAdults, currency, searchStatus, snapshotCount.
+   *   snapshots - object[]. Array of serialized snapshot objects. Optional.
+   *     Fields: id, flightSearchId, seatClass, price, airlineCodes, airlineNames,
+   *     flightType, durationMinutes, fetchedAt.
    * @return CSV string with # SEARCHES and # SNAPSHOTS sections.
    */
   toCsv: function(data: json): string js-server
@@ -33,8 +39,17 @@ type DataExport {
   /**
    * Import searches and/or snapshots with idempotent upsert semantics.
    * Uses natural keys for deduplication, not C3 entity IDs.
-   * @param data JSON with searches, snapshots, and conflictStrategy fields.
-   * @return Import report with created/skipped/overwritten/errors counts.
+   * @param data Import envelope (json).
+   *   searches - object[]. Array of search objects to import. Optional.
+   *     Fields: id, fromAirport, toAirport, tripType, outboundDate, returnDate,
+   *     maxStops, passengersAdults, currency, searchStatus.
+   *   snapshots - object[]. Array of snapshot objects to import. Optional.
+   *     Fields: id, flightSearchId, seatClass, price, airlineCodes, airlineNames,
+   *     flightType, durationMinutes, fetchedAt.
+   *   conflictStrategy - string. One of "skip" (default), "overwrite", or "error".
+   *     Controls behavior when a matching record already exists.
+   * @return Import report with status, searches, and snapshots sub-reports.
+   *   status is "completed" or "completed_with_errors".
    */
   importAll: function(data: json): json js-server
 }
