@@ -1,0 +1,17 @@
+### Acquire Bearer token via client_credentials
+# @name tokenRequest
+@tokenUrl = {{host}}/{{env}}/{{app}}/oauth/token
+
+{{
+  const id = process.env.OAUTH_CLIENT_ID;
+  const secret = process.env.OAUTH_CLIENT_SECRET;
+  exports.clientId = id;
+  exports.clientSecret = secret;
+  exports.basicAuth = Buffer.from(`${id}:${secret}`).toString("base64");
+}}
+
+POST {{tokenUrl}}
+Authorization: Basic {{basicAuth}}
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=client_credentials&client_id={{clientId}}&client_secret={{clientSecret}}
