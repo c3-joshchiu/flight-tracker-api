@@ -1,3 +1,5 @@
+var log = Logger.for('DataExport');
+
 // ── Export ──────────────────────────────────────────────────
 
 function exportAll() {
@@ -27,7 +29,7 @@ function exportSnapshots(searchId) {
       filter: Filter.eq('flightSearch', searchId),
       include: 'this',
       order: 'ascending(fetchedAt)',
-      limit: -1
+      limit: 50000
     }).objs || [];
 
     return _exportEnvelope([], _serializeSnapshots(snapshots));
@@ -93,7 +95,7 @@ function toCsv(data) {
 function importAll(data) {
   var strategy = data.conflictStrategy || 'skip';
   var report = {
-    status: 'completed',
+    status: 'pending',
     searches: { created: 0, skipped: 0, overwritten: 0, errors: [] },
     snapshots: { created: 0, skipped: 0, overwritten: 0, errors: [] }
   };
@@ -125,6 +127,7 @@ function importAll(data) {
       idMap[s.id] = created.id;
       report.searches.created++;
     } catch (e) {
+      log.error("Import search failed for id={}: {}", s.id, e.message || String(e));
       report.searches.errors.push({ id: s.id, error: e.message || String(e) });
     }
   }
@@ -167,9 +170,14 @@ function importAll(data) {
       }).create();
       report.snapshots.created++;
     } catch (e) {
+      log.error("Import snapshot failed for id={}: {}", snap.id || ('index_' + j), e.message || String(e));
       report.snapshots.errors.push({ id: snap.id || ('index_' + j), error: e.message || String(e) });
     }
   }
+
+  report.status = (report.searches.errors.length > 0 || report.snapshots.errors.length > 0)
+    ? 'completed_with_errors'
+    : 'completed';
 
   return report;
 }
@@ -181,7 +189,7 @@ function _fetchNonSeedSearches() {
     filter: Filter.ne('isTestData', true),
     include: 'this',
     order: 'descending(meta.created)',
-    limit: -1
+    limit: 50000
   }).objs || [];
 }
 
@@ -195,7 +203,7 @@ function _fetchSnapshotsForSearches(searches) {
     filter: Filter.intersects('flightSearch', ids),
     include: 'this',
     order: 'ascending(fetchedAt)',
-    limit: -1
+    limit: 50000
   }).objs || [];
 }
 
@@ -255,8 +263,8 @@ function _serializeSnapshots(snapshots) {
       flightSearchId: searchId,
       seatClass: snap.seatClass || '',
       price: snap.price || 0,
-      airlineCodes: snap.airlineCodes || [],
-      airlineNames: snap.airlineNames || [],
+      airlineCodes: _toPlainArray(snap.airlineCodes),
+      airlineNames: _toPlainArray(snap.airlineNames),
       flightType: snap.flightType || null,
       durationMinutes: snap.durationMinutes || null,
       fetchedAt: snap.fetchedAt ? String(snap.fetchedAt) : null
@@ -266,6 +274,15 @@ function _serializeSnapshots(snapshots) {
 }
 
 // ── CSV Helpers ────────────────────────────────────────────
+
+function _toPlainArray(c3arr) {
+  if (!c3arr) return [];
+  var result = [];
+  for (var i = 0; i < c3arr.length; i++) {
+    result.push(c3arr[i]);
+  }
+  return result;
+}
 
 function _csvField(val) {
   if (val === null || val === undefined) return '';
@@ -278,7 +295,11 @@ function _csvField(val) {
 
 function _csvArrayField(arr) {
   if (!arr || arr.length === 0) return '';
-  return '"' + arr.join(',') + '"';
+  var escaped = [];
+  for (var k = 0; k < arr.length; k++) {
+    escaped.push(String(arr[k]).replace(/"/g, '""'));
+  }
+  return '"' + escaped.join(',') + '"';
 }
 
 // ── Import Helpers ─────────────────────────────────────────
