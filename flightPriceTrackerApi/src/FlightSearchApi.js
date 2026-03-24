@@ -17,6 +17,10 @@ var ROUTES = [
   ['GET',    'searches/:id/prices',       getPrices],
   ['GET',    'searches/:id/latest-price', getLatestPrice],
   ['POST',   'searches/:id/fetch',        triggerFetch],
+  ['GET',    'export',                    exportData],
+  ['GET',    'export/searches',           exportSearchesHandler],
+  ['GET',    'export/snapshots',          exportSnapshotsHandler],
+  ['PUT',    'import',                    importData],
 ];
 
 /**
@@ -222,6 +226,103 @@ function triggerFetch(req, params) {
   if (!search) return _errorJson(req, 404, 'Search not found');
   var results = PriceSnapshot.fetchNow(params.id);
   return _jsonResponse(req, results || []);
+}
+
+
+// ────────────────────────────────────────────────────────────
+// Export / Import handlers
+// ────────────────────────────────────────────────────────────
+
+/**
+ * GET /flights/export?format=csv|json
+ *
+ * Exports all non-seed searches and their snapshots.
+ *
+ * @query {string} format  "csv" | "json" (default: "json")
+ * @returns {ExportData|string}  JSON envelope or CSV text depending on format
+ */
+function exportData(req) {
+  var formatValues = req.queryParam('format');
+  var format = (formatValues && formatValues.length > 0) ? formatValues[0] : 'json';
+  var data = DataExport.exportAll();
+  return _formatExportResponse(req, data, format, 'flight-tracker-export');
+}
+
+/**
+ * GET /flights/export/searches?format=csv|json
+ *
+ * Exports non-seed searches only (no snapshots).
+ *
+ * @query {string} format  "csv" | "json" (default: "json")
+ * @returns {ExportData|string}  JSON envelope or CSV text (snapshots array empty)
+ */
+function exportSearchesHandler(req) {
+  var formatValues = req.queryParam('format');
+  var format = (formatValues && formatValues.length > 0) ? formatValues[0] : 'json';
+  var data = DataExport.exportSearches();
+  return _formatExportResponse(req, data, format, 'flight-tracker-searches');
+}
+
+/**
+ * GET /flights/export/snapshots?format=csv|json&searchId=X
+ *
+ * Exports snapshots, optionally filtered to a single search.
+ *
+ * @query {string} format    "csv" | "json" (default: "json")
+ * @query {string} searchId  FlightSearch entity ID (optional; omit for all non-seed)
+ * @returns {ExportData|string}  JSON envelope or CSV text (searches array empty)
+ */
+function exportSnapshotsHandler(req) {
+  var formatValues = req.queryParam('format');
+  var format = (formatValues && formatValues.length > 0) ? formatValues[0] : 'json';
+  var searchIdValues = req.queryParam('searchId');
+  var searchId = (searchIdValues && searchIdValues.length > 0) ? searchIdValues[0] : '';
+  var data = DataExport.exportSnapshots(searchId);
+  return _formatExportResponse(req, data, format, 'flight-tracker-snapshots');
+}
+
+/**
+ * PUT /flights/import
+ *
+ * Idempotent bulk import of searches and/or snapshots. Uses natural keys
+ * (not C3 entity IDs) for deduplication, making cross-environment imports safe.
+ *
+ * @body {Object} JSON with:
+ *   - searches          {ExportedSearch[]}  Searches to import (optional)
+ *   - snapshots         {ExportedSnapshot[]} Snapshots to import (optional)
+ *   - conflictStrategy  {string}  "skip" (default) | "overwrite" | "error"
+ * @returns {ImportReport}  Counts of created/skipped/overwritten/errored records
+ * @error 400  Neither searches nor snapshots provided
+ */
+function importData(req) {
+  var body = _parseBody(req);
+  if (!body.searches && !body.snapshots) {
+    return _errorJson(req, 400, 'Request must include searches and/or snapshots');
+  }
+  var result = DataExport.importAll(body);
+  return _jsonResponse(req, result);
+}
+
+/**
+ * Serialize export data in the requested format and set appropriate headers.
+ * CSV responses include Content-Disposition for browser file download.
+ */
+function _formatExportResponse(req, data, format, filenameBase) {
+  var timestamp = new Date().toISOString().substring(0, 10);
+  var filename = filenameBase + '-' + timestamp;
+
+  switch (format) {
+    case 'csv': {
+      var csvString = DataExport.toCsv(data);
+      var csvContent = ContentValue.fromString(csvString, ContentType.csv());
+      var csvResp = req.responseFromContent(csvContent);
+      return csvResp.withHeader('Content-Disposition',
+        'attachment; filename="' + filename + '.csv"');
+    }
+    case 'json':
+    default:
+      return req.responseFromJson(data);
+  }
 }
 
 

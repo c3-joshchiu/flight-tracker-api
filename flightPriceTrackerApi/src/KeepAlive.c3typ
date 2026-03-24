@@ -1,7 +1,0 @@
-/**
- * Lightweight no-op type whose sole purpose is to prevent
- * environment hibernation by being invoked on an hourly cron schedule.
- */
-type KeepAlive {
-  ping: function() js-server
-}

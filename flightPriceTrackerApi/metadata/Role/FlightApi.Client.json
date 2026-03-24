@@ -11,6 +11,11 @@
     "allow:FlightSearch::computeAlert",
     "allow:FlightSearch::getLatestPrice",
     "allow:PriceSnapshot::getHistory",
-    "allow:PriceSnapshot::fetchNow"
+    "allow:PriceSnapshot::fetchNow",
+    "allow:DataExport::exportAll",
+    "allow:DataExport::exportSearches",
+    "allow:DataExport::exportSnapshots",
+    "allow:DataExport::toCsv",
+    "allow:DataExport::importAll"
   ]
 }

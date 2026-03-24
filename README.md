@@ -18,7 +18,7 @@ week-over-week trends, and exposes a RESTful API consumed by the
 │  CRUD (js-server) · alerts (py) · scraping (py)  │
 ├──────────────────────────────────────────────────┤
 │  CronJobs (C3 scheduler)                         │
-│  scheduledPriceFetch (3×/day) · keepAlive (1×/hr)│
+│  scheduledPriceFetch (3×/day)                     │
 └──────────────────────────────────────────────────┘
 ```
 
@@ -40,6 +40,10 @@ All paths are relative to `/<env>/<app>/flights`.
 | GET | `/searches/{id}/prices` | `getPrices` | Price history (optional `?seatClass=economy\|business`) |
 | GET | `/searches/{id}/latest-price` | `getLatestPrice` | Most recent economy snapshot |
 | POST | `/searches/{id}/fetch` | `triggerFetch` | Scrape Google Flights for live prices |
+| GET | `/export` | `exportData` | Export all non-seed data (`?format=csv\|json`) |
+| GET | `/export/searches` | `exportSearches` | Export searches only |
+| GET | `/export/snapshots` | `exportSnapshots` | Export snapshots (`?searchId=X`) |
+| PUT | `/import` | `importData` | Idempotent bulk import with natural key dedup |
 
 ## Entity Types
 
@@ -87,12 +91,25 @@ failure doesn't block the rest.
 
 **Methods:** `runScheduledSnapshots` (js-server)
 
-### KeepAlive
+### DataExport
 
-No-op type invoked hourly by the `keepAlive` CronJob to prevent environment
-hibernation.
+Static utility type for exporting and importing flight tracker data.
+Handles serialization to CSV/JSON and idempotent import with
+natural key deduplication.
 
-**Methods:** `ping` (js-server)
+**Methods:** `exportAll`, `exportSearches`, `exportSnapshots`, `toCsv`,
+`importAll` (all js-server)
+
+**Export formats:**
+
+| Format | Content-Type | Generated where |
+|--------|-------------|-----------------|
+| JSON | `application/json` | Backend |
+| CSV | `text/csv` | Backend (two-section with `# SEARCHES` / `# SNAPSHOTS`) |
+| XLSX | N/A | Frontend (SheetJS from JSON data) |
+
+**Import:** Uses natural keys (not entity IDs) for deduplication.
+Conflict strategies: `skip` (default), `overwrite`, `error`.
 
 ## Cron Jobs
 
@@ -101,7 +118,6 @@ Seeded via `seed/CronJob/`. Active on first provision.
 | Job | Schedule (UTC) | Action | Purpose |
 |-----|---------------|--------|---------|
 | `scheduledPriceFetch` | 00:00, 08:00, 16:00 | `FlightSearchScheduler.runScheduledSnapshots` | Automated price scraping for all active searches |
-| `keepAlive` | Every hour | `KeepAlive.ping` | Prevent environment hibernation |
 
 ## Project Structure
 
@@ -117,14 +133,11 @@ flightPriceTrackerApi/
 │   ├── PriceSnapshot.py          # fetchNow (Google Flights scraper)
 │   ├── FlightSearchScheduler.c3typ
 │   ├── FlightSearchScheduler.js  # runScheduledSnapshots (cron-driven price fetch)
-│   ├── KeepAlive.c3typ
-│   ├── KeepAlive.js              # ping (no-op to prevent hibernation)
 │   ├── FlightSearchApi.c3typ     # @restful(endpoint='flights')
 │   └── FlightSearchApi.js        # Route table, handlers, response helpers
 ├── seed/
 │   ├── CronJob/
-│   │   ├── scheduledPriceFetch.json
-│   │   └── keepAlive.json
+│   │   └── scheduledPriceFetch.json
 │   ├── FlightSearch/FlightSearch.json
 │   └── PriceSnapshot/PriceSnapshot.json
 
@@ -154,9 +167,8 @@ python refresh_seed.py
 
 2. Provision the `flightPriceTrackerApi` package to your C3 environment.
    `App#afterStart` automatically runs `UserGroup.upsertSeededGroups()` to
-   seed the `FlightApi.Client` role. The two `CronJob` records
-   (`scheduledPriceFetch`, `keepAlive`) are provisioned from seed data
-   automatically.
+   seed the `FlightApi.Client` role. The `scheduledPriceFetch` `CronJob`
+   is provisioned from seed data automatically.
 
 3. Verify seed data in the C3 console:
 
@@ -164,11 +176,10 @@ python refresh_seed.py
 FlightSearch.getAll()   // should return 3 seeded searches
 ```
 
-4. Verify cron jobs are active:
+4. Verify the cron job is active:
 
 ```javascript
 CronJob.get('scheduledPriceFetch')   // 3x daily price fetch
-CronJob.get('keepAlive')             // hourly keep-alive
 ```
 
 5. **(One-time)** Register an OAuth client for API consumers — see
@@ -216,6 +227,17 @@ openapi/flights-api.yaml   (this repo — source of truth)
 
 Consumer repos pull the spec and generate typed clients. Breaking changes are
 detected by `oasdiff` in CI before they reach consumers.
+
+**After changing the spec**, sync the UI repo:
+
+```bash
+cd ../flightTrackerUi
+bash flightPriceTrackerUi/react/scripts/generate-client.sh
+```
+
+The script mirrors the spec, regenerates TypeScript types, and runs `tsc` to
+surface any breaking changes. See the
+[UI README](../flightTrackerUi/README.md#updating-api-types) for details.
 
 ## Related
 
