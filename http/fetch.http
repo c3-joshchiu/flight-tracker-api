@@ -1,0 +1,10 @@
+@base = {{host}}/{{env}}/{{app}}/flights
+
+# @import ./_token.http
+
+### Trigger live price scrape
+# @name triggerFetch
+# @ref tokenRequest
+# operationId: triggerFetch
+POST {{base}}/searches/{{searchId}}/fetch
+Authorization: Bearer {{tokenRequest.access_token}}

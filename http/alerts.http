@@ -1,0 +1,10 @@
+@base = {{host}}/{{env}}/{{app}}/flights
+
+# @import ./_token.http
+
+### Compute price trend alert
+# @name getAlert
+# @ref tokenRequest
+# operationId: getAlert
+GET {{base}}/searches/{{searchId}}/alert
+Authorization: Bearer {{tokenRequest.access_token}}

@@ -1,0 +1,70 @@
+@base = {{host}}/{{env}}/{{app}}/flights
+
+# @import ./_token.http
+
+### Export all non-seed data (JSON)
+# @name exportData
+# @ref tokenRequest
+# operationId: exportData
+GET {{base}}/export
+Authorization: Bearer {{tokenRequest.access_token}}
+
+### Export all non-seed data (CSV)
+# @name exportDataCsv
+# @ref tokenRequest
+GET {{base}}/export?format=csv
+Authorization: Bearer {{tokenRequest.access_token}}
+Accept: text/csv
+
+### Export searches only (JSON)
+# @name exportSearches
+# @ref tokenRequest
+# operationId: exportSearches
+GET {{base}}/export/searches
+Authorization: Bearer {{tokenRequest.access_token}}
+
+### Export searches only (CSV)
+# @name exportSearchesCsv
+# @ref tokenRequest
+GET {{base}}/export/searches?format=csv
+Authorization: Bearer {{tokenRequest.access_token}}
+Accept: text/csv
+
+### Export snapshots (JSON)
+# @name exportSnapshots
+# @ref tokenRequest
+# operationId: exportSnapshots
+GET {{base}}/export/snapshots
+Authorization: Bearer {{tokenRequest.access_token}}
+
+### Export snapshots filtered by search (JSON)
+# @name exportSnapshotsFiltered
+# @ref tokenRequest
+GET {{base}}/export/snapshots?searchId={{searchId}}
+Authorization: Bearer {{tokenRequest.access_token}}
+
+### Import data (idempotent upsert)
+# @name importData
+# @ref tokenRequest
+# operationId: importData
+PUT {{base}}/import
+Authorization: Bearer {{tokenRequest.access_token}}
+Content-Type: application/json
+
+{
+  "searches": [
+    {
+      "id": "test_http_import_sfo_cdg",
+      "fromAirport": "SFO",
+      "toAirport": "CDG",
+      "tripType": "round-trip",
+      "outboundDate": "2026-06-01",
+      "returnDate": "2026-06-15",
+      "passengersAdults": 1,
+      "currency": "USD",
+      "searchStatus": "active"
+    }
+  ],
+  "snapshots": [],
+  "conflictStrategy": "skip"
+}
