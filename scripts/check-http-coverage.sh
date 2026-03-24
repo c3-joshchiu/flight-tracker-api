@@ -14,7 +14,7 @@ fi
 
 # Extract operationIds from spec (yq preferred, grep fallback)
 if command -v yq &>/dev/null; then
-  spec_ops=$(yq '.paths[][].operationId' "$SPEC" | tr -d ' ' | sort)
+  spec_ops=$(yq '.paths[][].operationId' "$SPEC" | grep -v '^null$' | tr -d ' ' | sort)
 else
   spec_ops=$(grep -E '^\s+operationId:\s+' "$SPEC" | sed 's/.*operationId:\s*//' | tr -d ' ' | sort)
 fi
