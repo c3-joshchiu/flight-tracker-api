@@ -19,13 +19,13 @@ POST /{env}/flightpricetrackerapi/oauth/token
 **C3 platform requirement:** the token request must include **both**
 HTTP Basic Auth **and** the credentials in the form body:
 
-| Basic Auth header | Form body credentials | Result |
-|---|---|---|
-| absent | present | `302` redirect to IdP |
-| present | absent | `{"error": "Bad request"}` |
-| **present** | **present** | **`access_token` returned** |
+| Basic Auth header | Form body credentials | Result                      |
+| ----------------- | --------------------- | --------------------------- |
+| absent            | present               | `302` redirect to IdP       |
+| present           | absent                | `{"error": "Bad request"}`  |
+| **present**       | **present**           | **`access_token` returned** |
 
-Standard OAuth libraries that send credentials in *either* the header or
+Standard OAuth libraries that send credentials in _either_ the header or
 the body (per RFC 6749 §2.3) will fail. You must send both.
 
 ### Wire format
@@ -41,7 +41,11 @@ grant_type=client_credentials&client_id={client_id}&client_secret={client_secret
 ### Response
 
 ```json
-{ "type": "OAuthAccessTokenResponse", "access_token": "<JWT>", "token_type": "bearer" }
+{
+  "type": "OAuthAccessTokenResponse",
+  "access_token": "<JWT>",
+  "token_type": "bearer"
+}
 ```
 
 No `expires_in` is returned. Default to a 55-minute TTL with a 60-second
@@ -115,13 +119,13 @@ All datetime fields use ISO 8601 UTC: `2026-04-04T00:00:00Z`.
 
 ## 4. Error Recovery
 
-| Status | Meaning | Action |
-|---|---|---|
-| `302` | Redirect to IdP (no/expired auth) | Re-acquire token, retry once |
-| `401` | Invalid Bearer token | Re-acquire token, retry once |
-| `400` | Bad request | Do not retry — fix the request |
-| `404` | Resource not found | — |
-| `500` | Server error | Retry with backoff (max 3) |
+| Status | Meaning                           | Action                         |
+| ------ | --------------------------------- | ------------------------------ |
+| `302`  | Redirect to IdP (no/expired auth) | Re-acquire token, retry once   |
+| `401`  | Invalid Bearer token              | Re-acquire token, retry once   |
+| `400`  | Bad request                       | Do not retry — fix the request |
+| `404`  | Resource not found                | —                              |
+| `500`  | Server error                      | Retry with backoff (max 3)     |
 
 Empty response from the token endpoint means the `Authorization: Basic`
 header is missing.

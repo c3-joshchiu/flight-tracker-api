@@ -349,10 +349,12 @@ function _parseBody(req) {
 }
 
 /**
- * Return a JSON error response with { error, status } body.
- * Uses responseFromText (not responseFromValue) since this is a plain object,
- * not a C3 typed value.
+ * Return a JSON error response with { error, status } body and a real HTTP status code.
+ * Uses HttpResponse.make() so the HTTP status matches the body — responseFromText always returns 200.
  */
 function _errorJson(req, status, message) {
-  return req.responseFromText(JSON.stringify({ error: message, status: status }));
+  return HttpResponse.make({
+    statusCode: status,
+    reasonPhrase: message
+  }).withBody(JSON.stringify({ error: message, status: status }));
 }

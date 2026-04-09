@@ -1,0 +1,53 @@
+@base = {{host}}/{{env}}/{{app}}/flights
+
+# @import ./_token.http
+
+### List all searches
+# @name listSearches
+# @ref tokenRequest
+# operationId: listSearches
+GET {{base}}/searches
+Authorization: Bearer {{tokenRequest.access_token}}
+
+### Create a search
+# @name createSearch
+# @ref tokenRequest
+# operationId: createSearch
+POST {{base}}/searches
+Authorization: Bearer {{tokenRequest.access_token}}
+Content-Type: application/json
+
+{
+  "fromAirport": "SFO",
+  "toAirport": "LHR",
+  "outboundDate": "2026-04-19",
+  "tripType": "round-trip",
+  "returnDate": "2026-04-29",
+  "passengersAdults": 2
+}
+
+### Get a search by ID
+# @name getSearch
+# @ref tokenRequest
+# operationId: getSearch
+GET {{base}}/searches/{{searchId}}
+Authorization: Bearer {{tokenRequest.access_token}}
+
+### Update search status
+# @name updateSearch
+# @ref tokenRequest
+# operationId: updateSearch
+PATCH {{base}}/searches/{{searchId}}
+Authorization: Bearer {{tokenRequest.access_token}}
+Content-Type: application/json
+
+{
+  "searchStatus": "disabled"
+}
+
+### Delete a search
+# @name deleteSearch
+# @ref tokenRequest
+# operationId: deleteSearch
+DELETE {{base}}/searches/{{searchId}}
+Authorization: Bearer {{tokenRequest.access_token}}

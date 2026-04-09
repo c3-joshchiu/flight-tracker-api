@@ -1,0 +1,23 @@
+@base = {{host}}/{{env}}/{{app}}/flights
+
+# @import ./_token.http
+
+### Price history for a search
+# @name getPrices
+# @ref tokenRequest
+# operationId: getPrices
+GET {{base}}/searches/{{searchId}}/prices
+Authorization: Bearer {{tokenRequest.access_token}}
+
+### Price history filtered by seat class
+# @name getPricesEconomy
+# @ref tokenRequest
+GET {{base}}/searches/{{searchId}}/prices?seatClass=economy
+Authorization: Bearer {{tokenRequest.access_token}}
+
+### Most recent economy snapshot
+# @name getLatestPrice
+# @ref tokenRequest
+# operationId: getLatestPrice
+GET {{base}}/searches/{{searchId}}/latest-price
+Authorization: Bearer {{tokenRequest.access_token}}
