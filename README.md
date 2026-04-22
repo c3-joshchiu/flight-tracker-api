@@ -11,7 +11,7 @@ week-over-week trends, and exposes a RESTful API consumed by the
 │  Consumers (UI, CLI, MCP, curl)                  │
 │  ─── HTTP + JSON only ───                        │
 ├──────────────────────────────────────────────────┤
-│  FlightSearchApi  (@restful BFF)                 │
+│  FlightSearchApi  (@restful endpoint)         │
 │  Route table → thin handlers → entity methods    │
 ├──────────────────────────────────────────────────┤
 │  FlightSearch / PriceSnapshot  (entity layer)    │
@@ -241,7 +241,7 @@ surface any breaking changes. See the
 
 ## Related
 
-- [flight-tracker-ui](../flightTrackerUi) — React frontend (BFF proxy)
+- [flight-tracker-ui](../flightTrackerUi) — React frontend (OAuth proxy)
 - [OpenAPI spec](openapi/flights-api.yaml) — full API contract
 - [Integration guide](integration-guide.md) — auth flow, C3 quirks, error recovery
 - [OAuth setup](../secret-config.md) — one-time credential provisioning

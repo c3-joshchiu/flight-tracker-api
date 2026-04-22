@@ -13,7 +13,7 @@ HTTP consumer. Built as a C3 AI Platform package (`flightPriceTrackerApi`).
 │  Consumers (React UI, CLI, MCP, curl)                    │
 │  ─── HTTP + JSON only ───                                │
 ├──────────────────────────────────────────────────────────┤
-│  FlightSearchApi  (@restful BFF, js-server)              │
+│  FlightSearchApi  (@restful endpoint, js-server)          │
 │  Route table → thin handlers → entity methods            │
 │  ─── translates HTTP verbs to entity method calls ───    │
 ├──────────────────────────────────────────────────────────┤
