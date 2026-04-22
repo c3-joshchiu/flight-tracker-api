@@ -30,3 +30,6 @@ Thumbs.db
 # Logs
 logs/
 *.log
+
+# Local Context
+flightPriceTrackerApi/c3syntax.md
